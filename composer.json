@@ -1,0 +1,13 @@
+{
+    "name": "group8/spyke",
+    "description": "A new, web-based social media platform",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Group8\\Spyke\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
