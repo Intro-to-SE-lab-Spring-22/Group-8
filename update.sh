@@ -16,10 +16,11 @@ else
 	echo "[] Checking for updates..."
     LOCAL=$(git rev-parse HEAD)
     REPOS=$(curl -s "https://api.github.com/repos/Intro-to-SE-lab-Spring-22/Group-8/branches/main" | jq -r ".commit.sha")
-
+	SHORT=${REPOS::7} # The first 7 characters of the lastest commit hash.
+	HTTPS="\e]8;;https://github.com/Intro-to-SE-lab-Spring-22/Group-8/commit/$REPOS\a$SHORT\e]8;;\a"
     if [ "$LOCAL" == "$REPOS" ]; then
-        # 1a. Do nothing.
-        echo "[] Already up to date."
+        # 1a. Do nothing, and link to the latest commit in the repo for info.
+        echo -e "[] Already up to date. ($HTTPS)"
         exit
     else
         # 1b. Update repository from GitHub
