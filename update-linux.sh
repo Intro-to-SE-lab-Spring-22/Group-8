@@ -30,7 +30,7 @@ else
 		# 1b. Update repository from GitHub
 		echo "[] Update ready! Pulling from GitHub..."
 		git pull
-		chmod +x $BASH_SOURCE
+		chmod +x "$BASH_SOURCE"
 	fi
 
 	# 2. Composer updates and deploys all dependencies/requirements
