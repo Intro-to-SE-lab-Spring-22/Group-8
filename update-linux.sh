@@ -14,10 +14,14 @@ then
 else
     # 1. Check if an update is needed
 	echo "[] Checking for updates..."
+	BRNCH="Intro-to-SE-lab-Spring-22/Group-8" # Our GitHub Branch
     LOCAL=$(git rev-parse HEAD)
-    REPOS=$(curl -s "https://api.github.com/repos/Intro-to-SE-lab-Spring-22/Group-8/branches/main" | jq -r ".commit.sha")
-	SHORT=${REPOS::7} # The first 7 characters of the lastest commit hash.
-	HTTPS="\e]8;;https://github.com/Intro-to-SE-lab-Spring-22/Group-8/commit/$REPOS\a$SHORT\e]8;;\a"
+    REPOS=$( # Find the SHA hash of the latest commit on GitHub.
+		curl -s "https://api.github.com/repos/$BRNCH/branches/main" |
+		jq -r ".commit.sha"
+	)
+	SHORT=${REPOS::7} # The first 7 characters of REPOS for its short hash.
+	HTTPS="\e]8;;https://github.com/$BRNCH/commit/$REPOS\a$SHORT\e]8;;\a"
     if [ "$LOCAL" == "$REPOS" ]; then
         # 1a. Do nothing, and link to the latest commit in the repo for info.
         echo -e "[] Already up to date. ($HTTPS)"
