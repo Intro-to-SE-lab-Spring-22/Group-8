@@ -13,6 +13,7 @@ then
 	exit 127 # Throws a 'command not found' code specifically
 else
     # 1. Check if an update is needed
+	echo "[] Checking for updates..."
     LOCAL=$(git rev-parse HEAD)
     REPOS=$(curl -s "https://api.github.com/repos/Intro-to-SE-lab-Spring-22/Group-8/branches/main" | jq -r ".commit.sha")
 
@@ -22,7 +23,7 @@ else
         exit
     else
         # 1b. Update repository from GitHub
-        echo "[] Updating from GitHub..."
+        echo "[] Update ready! Pulling from GitHub..."
         git pull
     fi
 
