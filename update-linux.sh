@@ -31,7 +31,7 @@ else
 		echo "[] Update ready! Pulling from GitHub..."
 		git pull
 		chmod +x "$BASH_SOURCE"
-		chmod +x "slam-with-hammer.sh"
+		chmod +x slam-with-hammer.sh
 	fi
 
 	# 2. Composer updates and deploys all dependencies/requirements

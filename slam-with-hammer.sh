@@ -9,7 +9,7 @@ Slam () {
 }
 
 while true; do
-    read -p "[] Continue?" yn
+    read -p "[] Continue? >" yn
     case $yn in
         [Yy]* ) Slam; break;;
         [Nn]* ) exit;;
