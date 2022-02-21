@@ -11,4 +11,6 @@ class ClassTemplate # MUST be the same as the filename in PascalCase (sans '.php
 		#	$Class->helloWorld();
         print("Howdy!");
     }
+
+    public function 
 }
