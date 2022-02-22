@@ -12,11 +12,14 @@ $Auth = new \Group8\Spyke\Auth;
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css"  href="assets/css/homepage.css">
+	
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Spyke.space</title>
 	
-	<link rel="stylesheet" type="text/css"  href="var/www/spyke/assets/css/homepage.css">
+	
 </head>
 	
 <body>
