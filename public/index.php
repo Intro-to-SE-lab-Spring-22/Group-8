@@ -15,7 +15,8 @@ $Auth = new \Group8\Spyke\Auth;
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Spyke.space</title>
-	<link rel="stylesheet"href="var/www/spyke/assets/css/homepage.css">
+	
+	<link rel="stylesheet" type="text/css"  href="var/www/spyke/assets/css/homepage.css">
 </head>
 	<div class="wrapper">
 		<div class="logo">
