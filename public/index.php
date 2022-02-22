@@ -1,4 +1,4 @@
-<!doctype html>
+
 
 <?php
 # Spyke Main Index
@@ -9,7 +9,7 @@ $Auth = new \Group8\Spyke\Auth;
 # $Auth->helloWorld();   ### REMOVE ON IMPLEMENTATION OF AUTH ###
 ?>
 
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -18,6 +18,8 @@ $Auth = new \Group8\Spyke\Auth;
 	
 	<link rel="stylesheet" type="text/css"  href="var/www/spyke/assets/css/homepage.css">
 </head>
+	
+<body>
 	<div class="wrapper">
 		<div class="logo">
 			<img src="#" alt="">
@@ -35,7 +37,5 @@ $Auth = new \Group8\Spyke\Auth;
 		<li><a href="#">Contact Us</li>
 
 	</div>
-<body>
-
 </body>
 </html>
