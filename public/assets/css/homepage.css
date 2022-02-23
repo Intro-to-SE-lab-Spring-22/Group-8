@@ -11,13 +11,16 @@
 }
 
 header{
-	background: background: content-box linear-gradient(rgba(255,148,25,1), rgba(255,255,255,0.4));   /*linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)) url("homepage_image"); /*TODO*/ 
+       /*linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)) url("homepage_image"); /*TODO*/ 
 	height: 100vh;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
 	position: relative;
 
+}
+body{
+	background: content-box linear-gradient(rgba(255,148,25,1), rgba(255,255,255,0.4));
 }
 .nav-area{
 	list-stype: none;
