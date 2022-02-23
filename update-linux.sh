@@ -14,6 +14,7 @@ then
 else
 	# 1. Check if an update is needed
 	echo "[] Checking for updates..."
+	cd "${0%/*}" # Ensure we are in the correct directory
 	BRNCH="Intro-to-SE-lab-Spring-22/Group-8" # Our GitHub Branch
 	LOCAL=$(git rev-parse HEAD)
 	REPOS=$( # Find the SHA hash of the latest commit on GitHub.
