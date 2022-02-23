@@ -11,7 +11,7 @@
 }
 
 header{
-	background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)) url("https://www.google.com/search?q=tech+images&client=firefox-b-1-d&channel=nus5&sxsrf=APq-WBuVCrGl-cIsLCvxJj5CCHYJb_14xQ:1645576855080&tbm=isch&source=iu&ictx=1&vet=1&fir=-onQKDyAXwRIJM%252C0cIuuvIh6u3mtM%252C_%253BSyWt1iHSssN04M%252CMuVUdz2ocOQq3M%252C_%253BBlqBvJkQdpJpZM%252CbYet3ye585cVdM%252C_%253BJxCUdXerg9dGGM%252COJrNHdI_IjEEiM%252C_%253B_Oi6WvezMbmBuM%252CMSRXFgcBweyh3M%252C_%253BA_mmIRi02t1msM%252C0cIuuvIh6u3mtM%252C_%253BgtUwmiXFcKjmIM%252CMuVUdz2ocOQq3M%252C_%253BzGxvu4H8OcIa6M%252C0cIuuvIh6u3mtM%252C_%253BJSkMeCoBHDkeaM%252CmV8tDHB68jI3GM%252C_%253B9KxnAmBKw-IxBM%252C0cIuuvIh6u3mtM%252C_%253BI2ommSkh3PrxKM%252C0cIuuvIh6u3mtM%252C_%253BKF1ASR30_P-IHM%252CbYet3ye585cVdM%252C_&usg=AI4_-kSySa1CY8vAHAiGz0XwkPgo4PFJKw&sa=X&ved=2ahUKEwj_0Ja_y5T2AhVrmGoFHezIBD4Q9QF6BAgCEAE#imgrc=-onQKDyAXwRIJM"); /*TODO*/
+	background: background: content-box linear-gradient(rgba(255,148,25,1), rgba(255,255,255,0.4));   /*linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)) url("homepage_image"); /*TODO*/ 
 	height: 100vh;
 	-webkit-background-size: cover;
 	background-size: cover;
