@@ -9,7 +9,7 @@ class Render
 	// Adds content to the buffer.
 	public function add(string $content)
 	{
-		$this->content .= $content;
+		$this->content .= $content . "\n";
 	}
 
 	// Builds a final HTML output.
