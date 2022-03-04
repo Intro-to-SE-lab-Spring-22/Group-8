@@ -23,7 +23,7 @@ body{
 	background: content-box linear-gradient(rgba(255,148,25,1), rgba(255,255,255,0.4));
 }
 .nav-area{
-	list-stype: none;
+	list-style-type: none;
 	float: right;
 	margin-top: 30px;
 }
@@ -31,7 +31,7 @@ body{
 	display:  inline-block;
 }
 .nav-area li a{
-	color:  #fff;	/*TODO*/
+	color:  rgb(255, 250, 250);	/*TODO*/
 	text-decoration:none;
 	padding: 5px 20px;
 	font-family: poppins; /*TODO*/
