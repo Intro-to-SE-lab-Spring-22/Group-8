@@ -1,3 +1,4 @@
 /vendor/
 composer.lock
 password.txt
+public/test.php
