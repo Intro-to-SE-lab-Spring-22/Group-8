@@ -22,7 +22,7 @@
 
 <body>
 	<div class="login-form">
-		<h1>Register Form</h1>
+		<h1>User Register</h1>
 		<form action="#" method="post">
 			<p>User Name</p>
 			<input type="text" name="user" placeholder="User Name">
