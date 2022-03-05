@@ -6,6 +6,11 @@ class Render
 	// The <body> buffer. Things are to be appended to this.
 	private string $content;
 
+	public function __construct()
+	{
+		$this->content = "";
+	}
+
 	// Adds content to the buffer.
 	public function add(string $content)
 	{
