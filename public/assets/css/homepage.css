@@ -21,6 +21,8 @@ header{
 }
 body{
 	background: content-box linear-gradient(rgba(255,148,25,1), rgba(255,255,255,0.4));
+	background-attachment: fixed;
+
 }
 .nav-area{
 	list-style-type: none;
