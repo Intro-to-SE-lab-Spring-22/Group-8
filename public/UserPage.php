@@ -6,7 +6,6 @@
 
 
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -16,7 +15,7 @@
 <body>
 	<!-- This page is a work in progress, and will be worked on in sprint 3. -->
 	
-	<img src="assets/img/Spyke_WIP.png">
+	<img src="assets/img/Spyke_WIP.png" alt="WIP" class="center">
 
 </body>
 </html>
