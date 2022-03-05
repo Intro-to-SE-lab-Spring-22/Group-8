@@ -1,13 +1,13 @@
 *{
 	margin: 0;
 	padding: 0;
-
 }
+
 .wrapper{
 	width:  1170px;
 	margin: auto;
-
 }
+
 header{
        /*linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)) url("homepage_image"); /*TODO*/ 
 	height: 100vh;
@@ -15,21 +15,26 @@ header{
 	background-size: cover;
 	background-position: center center;
 	position: relative;
-
 }
+
 body{
 	background: content-box linear-gradient(rgba(255,148,25,1), rgba(255,255,255,0.4));
 	background-attachment: fixed;
-
 }
+
 .nav-area{
-	list-stype: none;
 	float: right;
 	margin-top: 30px;
 }
+
+li{
+	list-style: none;
+}
+
 .nav-area li{
 	display:  inline-block;
 }
+
 .nav-area li a{
 	color:  #fff;	/*TODO*/
 	text-decoration:none;
@@ -37,29 +42,32 @@ body{
 	font-family: poppins; /*TODO*/
 	font-size: 16px;
 }
+
 li a:hover{
 	background: #fff;
 	color:  #333;
 }
+
 .logo img{
 	width: 100px;
 	height: auto;
 }
+
 .Welcome-text{
 	position: absolute;
 	width: 600px;
 	height: 300px;
 	margin: 20% 30%;
 	text-align: center;
-
 }
+
 .Welcome-text h1{
 	text-align: center;
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 60px;
-
 }
+
 .Welcome-text a{
 	border: 1px solid #fff;
 	padding: 10px 25px;
