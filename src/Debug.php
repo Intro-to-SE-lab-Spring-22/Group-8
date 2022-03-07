@@ -28,13 +28,7 @@ class Debug
 		$id =	$this->id  >= 0 ? $this->id : "-";
 		$time =	date("[H:i:s]");
 		$body =	(is_string($from) ? "[{$from}] " : null) . trim(preg_replace("/\s+/", " ", $message));
-
-		// Status construction block
-		if (is_int($httpStatusInt)) {
-			$httpStatus = str_pad($httpStatusInt, 3, "0", STR_PAD_LEFT);
-		} else {
-			$httpStatus = "-";
-		}
+		$httpStatus = (is_int($httpStatusInt) ? $httpStatusInt : "-");
 
 		// $log construction gets its own block
 		$log =	self::DIR . ($error ? "error" : "event") . "-{$date}.log";
