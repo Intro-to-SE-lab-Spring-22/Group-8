@@ -22,7 +22,7 @@ specify an identity when creating the *Debug* object.
 | str		| `$message`		|		 	| Your statement					|
 | str/bool 	| `$error`		 	| false		| See Below							|
 | str		| `$from`			| null		| Categorize and identify this log 	|
-| int		| `$httpStatusInt` 	| null		| An accompanying HTTP status code 	|
+| int		| `$httpStatusInt` 	| null		| Set HTTP status to include users.	|
 
 **`$error` cases:**
 | Type		| Description 														|
