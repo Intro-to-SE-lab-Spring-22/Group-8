@@ -1,11 +1,11 @@
 # Spyke Developer Docs
-## The *Debug* Class
+## The *Log* Class
 
-The Debug class can create verbose logs easily
+The Log class can create verbose logs easily
 for better debugging and event monitoring.
 
 ### Setup
-`$Debugger = new Group8\Spyke\Debug($user, $id)`
+`$Logger = new Group8\Spyke\Log($user, $id)`
 ##### Arguments
 | Type 	| Variable 	| Default	 	| Note									 	|
 |------	|----------	|-------------	|------------------------------------------	|
@@ -15,7 +15,7 @@ for better debugging and event monitoring.
 If there is a user interacting with an event that needs to be logged, you may
 specify an identity when creating the *Debug* object.
 
-### log($message, $error, $from, $httpStatusInt)
+### add($message, $error, $from, $httpStatusInt)
 ##### Arguments
 | Type 		| Variable		 	| Default 	| Note							 	|
 |----------	|------------------	|---------	|----------------------------------	|
@@ -32,13 +32,13 @@ specify an identity when creating the *Debug* object.
 
 ##### Example:
 ```php
-$Debugger = new Group8\Spyke\Debug("Bo", 380)
+$Logger = new Group8\Spyke\Debug("Bo", 380)
 
-$Debugger->log("Only a message.");
-$Debugger->log("A message with no sender, but a status code.", false, null, 404);
-$Debugger->log("A message with everything!", false, "Test", 200);
-$Debugger->log("Error, I broke something...", true, "Buggy", 500);
-$Debugger->log("I am in a custom log file.", "custom-log-file", "Special");
+$Logger->add("Only a message.");
+$Logger->add("A message with no sender, but a status code.", false, null, 404);
+$Logger->add("A message with everything!", false, "Test", 200);
+$Logger->add("Error, I broke something...", true, "Buggy", 500);
+$Logger->add("I am in a custom log file.", "custom-log-file", "Special");
 ```
 ##### Log Output: `event.log`
 ````log

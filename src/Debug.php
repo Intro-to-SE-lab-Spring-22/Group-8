@@ -1,7 +1,7 @@
 <?php
 namespace Group8\Spyke;
 
-class Debug
+class Log
 {
 	const DIR = __DIR__ . "/../log/"; // Log Directory
 	private int $id;
@@ -19,7 +19,7 @@ class Debug
 		}
     }
 
-    public function log(string $message, $error = false, string $from = null, int $httpStatusInt = null)
+    public function add(string $message, $error = false, string $from = null, int $httpStatusInt = null)
 	{
 		// Initialize variables
 		$fixedId =	$this->id  >= 0 ? $this->id : "-";
