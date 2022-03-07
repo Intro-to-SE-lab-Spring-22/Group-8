@@ -21,7 +21,7 @@ class Debug
 		}
     }
 
-    public function log(string $message, bool $error = false, string $from = null, int $httpStatusInt = null)
+    public function log(string $message, $error = false, string $from = null, int $httpStatusInt = null)
 	{
 		// Initialize variables
 		$date =	date("Y-m-d");
@@ -31,7 +31,8 @@ class Debug
 		$httpStatus = (is_int($httpStatusInt) ? $httpStatusInt : "-");
 
 		// $log construction gets its own block
-		$log =	self::DIR . ($error ? "error" : "event") . "-{$date}.log";
+		$file = (is_bool($error)) ? ($error ? "error" : "event") : $error;
+		$log =	self::DIR . "{$file}-{$date}.log";
 
 		// Construct an NCSA Common Log-formatted string
 		$format = "- {$id} {$this->user}\t{$time} \"{$body}\" {$httpStatus} -\n";
