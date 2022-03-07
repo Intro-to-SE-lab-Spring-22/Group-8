@@ -42,7 +42,7 @@ $Debugger->log("I am in a custom log file.", "custom-log-file", "Special");
 ```
 ##### Log Output: `event.log`
 ````log
-- 380 Bo	[19:23:44] "Only a message." - -
+- - -		[19:23:44] "Only a message." - -
 - 380 Bo	[19:23:44] "A message with no sender, but a status code." 404 -
 - 380 Bo	[19:23:44] "[Test] A message with everything!" 200 -
 ````
@@ -52,6 +52,6 @@ $Debugger->log("I am in a custom log file.", "custom-log-file", "Special");
 ````
 ##### Log Output: `custom-log-file.log`
 ````log
-- 380 Bo	[19:23:44] "[Special] I am in a custom log file." - -
+- - -		[19:23:44] "[Special] I am in a custom log file." - -
 ````
 * [!] The extra dashes '-' before and after the log are intentional.
