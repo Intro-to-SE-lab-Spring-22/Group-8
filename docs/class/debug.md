@@ -20,9 +20,15 @@ specify an identity when creating the *Debug* object.
 | Type 		| Variable		 	| Default 	| Note							 	|
 |----------	|------------------	|---------	|----------------------------------	|
 | str		| `$message`		|		 	| Your statement					|
-| str/bool 	| `$error`		 	| false		| Did an error cause this log? If	`str`, custom log file.|
+| str/bool 	| `$error`		 	| false		| See Below							|
 | str		| `$from`			| null		| Categorize and identify this log 	|
 | int		| `$httpStatusInt` 	| null		| An accompanying HTTP status code 	|
+
+**`$error` cases:**
+| Type		| Description 														|
+| ---------	| -----------------------------------------------------------------	|
+| `bool`	| Should this go to `error.log`?									|
+| `str`		| Specifies a custom log filename. No `.log` needed.				|
 
 ##### Example:
 ```php

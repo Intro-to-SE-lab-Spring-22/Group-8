@@ -6,7 +6,6 @@ class Debug
 	const DIR = __DIR__ . "/../log/"; // Log Directory
 	private int $id;
 	private string $user;
-	private bool $logUser;
 
     public function __construct(string $user = "Anonymous", int $id = null)
     {
