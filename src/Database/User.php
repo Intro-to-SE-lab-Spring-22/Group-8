@@ -3,6 +3,11 @@ namespace Group8\Spyke\Database;
 
 class User extends \Group8\Spyke\Database
 {
+	public const USERNAME_MIN = 3;
+	public const USERNAME_MAX = 30;
+	public const PASSWORD_MIN = 8;
+	public const PASSWORD_MAX = 128;
+
 	// Setters
 	public function registerUser($username, $pass)
 	{
@@ -31,6 +36,24 @@ class User extends \Group8\Spyke\Database
 		} else {
 			return false;
 		}
+	}
+
+	public function checkRequirements($username, $password)
+	{
+		$status = [true, true];
+		// Check Username
+		$usernameLength = strlen($username);
+		$usernameIsNotTooShort = self::USERNAME_MIN <= $usernameLength;
+		$usernameIsNotTooLong = $usernameLength <= self::USERNAME_MAX;
+		$usernameNotTaken = !$this->getID($username);
+		$status[0] = $usernameIsNotTooShort && $usernameIsNotTooLong && $usernameNotTaken;
+		// Check Password
+		$passwordLength = strlen($password);
+		$passwordIsNotTooShort = self::PASSWORD_MIN <= $passwordLength;
+		$passwordIsNotTooLong = $passwordLength <= self::PASSWORD_MAX;
+		$status[1] = $passwordIsNotTooShort && $passwordIsNotTooLong;
+		// Finalize
+		return $status;
 	}
 
 	public function getID($username)
