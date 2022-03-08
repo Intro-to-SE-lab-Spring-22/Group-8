@@ -20,6 +20,6 @@ Returns an associative array of the format
 `id -> username`
 for every user in Spyke.
 
-### getID() -> int | False
+### getId() -> int | False
 Returns the ID number of a given username.
 If no such username exists, returns `false`.

@@ -56,7 +56,7 @@ class User extends \Group8\Spyke\Database
 		return $status;
 	}
 
-	public function getID($username)
+	public function getId($username)
 	{
 		// Get a user ID from a username
 		$sql = "SELECT id FROM users WHERE username = ?";
