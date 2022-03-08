@@ -34,7 +34,7 @@ class Log
 		$log =	self::DIR . "{$file}-" . date("Y-m-d") . ".log";
 
 		// Construct an NCSA Common Log-formatted string
-		$format = "- {$user}\t{" . date("[H:i:s]") . " \"{$body}\" {$httpStatus} -\n";
+		$format = "- {$user}\t" . date("[H:i:s]") . " \"{$body}\" {$httpStatus} -\n";
 
 		// Write to disk (UTF-8)
 		file_put_contents($log, utf8_encode($format),  FILE_APPEND | LOCK_EX);
