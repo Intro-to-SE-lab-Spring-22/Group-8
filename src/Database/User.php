@@ -41,17 +41,17 @@ class User extends \Group8\Spyke\Database
 	public function checkRequirements($username, $password)
 	{
 		$status = [true, true];
+		$minMax = function($string, $min, $max)
+		{
+			$len = strlen($string);
+			$checkMin = $min <= $len;
+			$checkMax = $len <= $max;
+			return $checkMin && $checkMax;
+		};
 		// Check Username
-		$usernameLength = strlen($username);
-		$usernameIsNotTooShort = self::USERNAME_MIN <= $usernameLength;
-		$usernameIsNotTooLong = $usernameLength <= self::USERNAME_MAX;
-		$usernameNotTaken = !$this->getID($username);
-		$status[0] = $usernameIsNotTooShort && $usernameIsNotTooLong && $usernameNotTaken;
+		$status[0] = $minMax($username, self::USERNAME_MIN, self::USERNAME_MAX) && !$this->getID($username);
 		// Check Password
-		$passwordLength = strlen($password);
-		$passwordIsNotTooShort = self::PASSWORD_MIN <= $passwordLength;
-		$passwordIsNotTooLong = $passwordLength <= self::PASSWORD_MAX;
-		$status[1] = $passwordIsNotTooShort && $passwordIsNotTooLong;
+		$status[1] = $minMax($password, self::PASSWORD_MIN, self::PASSWORD_MAX);
 		// Finalize
 		return $status;
 	}
