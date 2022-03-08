@@ -12,3 +12,7 @@ Normal PDO methods can be called directly through *Database*'s public `$pdo`.
 ### query(...$args)
 Pipes all arguments to the PDO object `$this->pdo`.  \
 `$DB->query(...$args)` is **1:1 identical** to calling `$DB->pdo->query(...$args)`
+
+### prepare(...$args)
+Pipes all arguments to the PDO object `$this->pdo`.  \
+`$DB->prepare(...$args)` is **1:1 identical** to calling `$DB->pdo->prepare(...$args)`
