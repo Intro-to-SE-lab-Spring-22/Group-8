@@ -3,10 +3,10 @@ namespace Group8\Spyke\Database;
 
 class User extends \Group8\Spyke\Database
 {
-	public const USERNAME_MIN = 3;
-	public const USERNAME_MAX = 30;
-	public const PASSWORD_MIN = 8;
-	public const PASSWORD_MAX = 128;
+	public const USER_MIN = 3;
+	public const USER_MAX = 30;
+	public const PASS_MIN = 8;
+	public const PASS_MAX = 128;
 
 	// Setters
 	public function registerUser($username, $pass)
@@ -49,9 +49,9 @@ class User extends \Group8\Spyke\Database
 			return $checkMin && $checkMax;
 		};
 		// Check Username
-		$status[0] = $minMax($username, self::USERNAME_MIN, self::USERNAME_MAX) && !$this->getID($username);
+		$status[0] = $minMax($username, self::USER_MIN, self::USER_MAX) && !$this->getID($username);
 		// Check Password
-		$status[1] = $minMax($password, self::PASSWORD_MIN, self::PASSWORD_MAX);
+		$status[1] = $minMax($password, self::PASS_MIN, self::PASS_MAX);
 		// Finalize
 		return $status;
 	}
