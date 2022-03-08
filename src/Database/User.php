@@ -22,9 +22,19 @@ class User extends \Group8\Spyke\Database
 		$sql = "SELECT username, id FROM users";
 		$obj = $this->pdo->prepare($sql);
 		$obj->execute();
-		$list = $obj->fetchAll(\PDO::FETCH_COLUMN);
-		array_unshift($list, NULL);
-		unset($list[0]);
+		$list = $obj->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP, 1);
 		return $list;
+	}
+
+	// Destroyers
+	function deleteUser($id)
+	{
+		// Delete a user by ID
+		$data = [
+			"id" => $id
+		];
+		$sql = "DELETE FROM users WHERE id = :id";
+		$obj = $this->pdo->prepare($sql);
+		return $obj->execute($data);
 	}
 }
