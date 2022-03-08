@@ -6,13 +6,17 @@ class User extends \Group8\Spyke\Database
 	// Setters
 	public function registerUser($username, $pass)
 	{
-		$data = [
-			"username" => $username,
-			"id" => NULL,
-			"pass" => password_hash($pass, PASSWORD_DEFAULT)
-		];
-		$sql = "INSERT INTO users (username, id, pass) VALUES (:username, :id, :pass)";
-		return $this->prepare($sql)->execute($data);
+		if ($this->getID($username)) {
+			$data = [
+				"username" => $username,
+				"id" => NULL,
+				"pass" => password_hash($pass, PASSWORD_DEFAULT)
+			];
+			$sql = "INSERT INTO users (username, id, pass) VALUES (:username, :id, :pass)";
+			return $this->prepare($sql)->execute($data);
+		} else {
+			return false;
+		}
 	}
 
 	// Getters
@@ -27,6 +31,16 @@ class User extends \Group8\Spyke\Database
 		} else {
 			return false;
 		}
+	}
+
+	public function getID($username)
+	{
+		// Get a user ID from a username
+		$sql = "SELECT id FROM users WHERE username = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$username]);
+		$user = $obj->fetch(\PDO::FETCH_ASSOC);
+		return $user ? reset($user) : false;
 	}
 
 	// Destroyers
