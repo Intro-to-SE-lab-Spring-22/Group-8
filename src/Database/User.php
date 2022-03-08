@@ -4,7 +4,7 @@ namespace Group8\Spyke\Database;
 class User extends \Group8\Spyke\Database
 {
 	// Setters
-	function registerUser($username, $pass)
+	public function registerUser($username, $pass)
 	{
 		$data = [
 			"username" => $username,
@@ -16,7 +16,7 @@ class User extends \Group8\Spyke\Database
 	}
 
 	// Getters
-	function getUserList()
+	public function getUserList()
 	{
 		// Returns all users as [id] => [username]
 		$sql = "SELECT username, id FROM users";
@@ -30,7 +30,7 @@ class User extends \Group8\Spyke\Database
 	}
 
 	// Destroyers
-	function deleteUser($id)
+	public function deleteUser($id)
 	{
 		// Delete a user by ID
 		$sql = "DELETE FROM users WHERE id = :id";
