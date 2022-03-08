@@ -23,7 +23,7 @@ class User extends \Group8\Spyke\Database
 		$obj = $this->pdo->prepare($sql);
 		$obj->execute();
 		$list = $obj->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP, 1);
-		return $list;
+		return array_map("reset", $list);
 	}
 
 	// Destroyers
