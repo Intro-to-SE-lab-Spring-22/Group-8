@@ -12,7 +12,7 @@ class User extends \Group8\Spyke\Database
 			"pass" => password_hash($pass, PASSWORD_DEFAULT)
 		];
 		$sql = "INSERT INTO users (username, id, pass) VALUES (:username, :id, :pass)";
-		return $this->pdo->prepare($sql)->execute($data);
+		return $this->prepare($sql)->execute($data);
 	}
 
 	// Getters
@@ -20,21 +20,21 @@ class User extends \Group8\Spyke\Database
 	{
 		// Returns all users as [id] => [username]
 		$sql = "SELECT username, id FROM users";
-		$obj = $this->pdo->prepare($sql);
-		$obj->execute();
-		$list = $obj->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP, 1);
-		return array_map("reset", $list);
+		$obj = $this->prepare($sql);
+		if ($obj->execute()) {
+			$list = $obj->fetchAll(\PDO::FETCH_COLUMN|\PDO::FETCH_GROUP, 1);
+			return array_map("reset", $list);
+		} else {
+			return false;
+		}
 	}
 
 	// Destroyers
 	function deleteUser($id)
 	{
 		// Delete a user by ID
-		$data = [
-			"id" => $id
-		];
 		$sql = "DELETE FROM users WHERE id = :id";
-		$obj = $this->pdo->prepare($sql);
-		return $obj->execute($data);
+		$obj = $this->prepare($sql);
+		return $obj->execute(["id" => $id]);
 	}
 }
