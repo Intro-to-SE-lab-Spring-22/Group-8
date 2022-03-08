@@ -22,15 +22,20 @@ class Database
 		$this->pdo = new \PDO($this->dsn, $username, $this->getCredentials());
     }
 
-	public function query(...$args)
-	{
-		// Pipe queries to the PDO
-		return $this->pdo->query(...$args);
-	}
-
 	protected function getCredentials()
 	{
 		// Get our database password.
 		return file_get_contents(__DIR__ . "/../password.txt");
+	}
+
+	// Pipes
+	public function query(...$args)
+	{
+		return $this->pdo->query(...$args);
+	}
+
+	public function prepare(...$args)
+	{
+		return $this->pdo->prepare(...$args);
 	}
 }
