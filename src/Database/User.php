@@ -6,7 +6,7 @@ class User extends \Group8\Spyke\Database
 	// Setters
 	public function registerUser($username, $pass)
 	{
-		if ($this->getID($username)) {
+		if (!$this->getID($username)) {
 			$data = [
 				"username" => $username,
 				"id" => NULL,
