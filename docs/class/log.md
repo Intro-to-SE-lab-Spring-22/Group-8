@@ -15,6 +15,9 @@ for better debugging and event monitoring.
 If there is a user interacting with an event that needs to be logged, you may
 specify an identity when creating the *Debug* object.
 
+### changeUser(int $id, str $user)
+Changes the current user noted by the logger.
+
 ### add($message, $error, $from, $httpStatusInt)
 ##### Arguments
 | Type 		| Variable		 	| Default 	| Note							 	|

@@ -27,16 +27,22 @@ class Log
 		$httpStatus = (is_int($httpStatusInt) ? $httpStatusInt : "-");
 
 		// User Logging
-		$user = isset($httpStatusInt) ? "{$fixedId} {$this->user}" : "- -\t";
+		$user = isset($httpStatusInt) && isset($this->user) ? "{$fixedId} {$this->user}" : "- -\t";
 
 		// $log construction gets its own block
 		$file = (is_bool($error)) ? ($error ? "error" : "event") : $error;
 		$log =	self::DIR . "{$file}-" . date("Y-m-d") . ".log";
 
 		// Construct an NCSA Common Log-formatted string
-		$format = "- {$user}\t{" . date("[H:i:s]") . " \"{$body}\" {$httpStatus} -\n";
+		$format = "- {$user}\t" . date("[H:i:s]") . " \"{$body}\" {$httpStatus} -\n";
 
 		// Write to disk (UTF-8)
 		file_put_contents($log, utf8_encode($format),  FILE_APPEND | LOCK_EX);
+	}
+
+	public function changeUser(int $id = -1, string $user = null)
+	{
+		$this->id = $id;
+		$this->user = $user;
 	}
 }
