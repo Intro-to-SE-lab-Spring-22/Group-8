@@ -6,7 +6,7 @@ class Database
 	const ENGINE = "mysql";
 	const HOST = "localhost";
 
-	private $dsn;
+	private string $dsn;
 	public \PDO $pdo;
     public function __construct($username = "spyke")
     {
