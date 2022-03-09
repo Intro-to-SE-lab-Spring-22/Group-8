@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 
-# Register page for Spyke, Identical to Login.php, but should add users to the database instead of verify that they exist. 
+# Register page for Spyke, Identical to Login.php, but should add users to the database instead of verify that they exist.
 
 
 
@@ -23,9 +23,9 @@
 <body>
 	<div class="login-form">
 		<h1>User Register</h1>
-		<form action="#" method="post">
+		<form action="./action/register.php" method="post">
 			<p>User Name</p>
-			<input type="text" name="user" placeholder="User Name">
+			<input type="text" name="username" placeholder="User Name">
 			<p>Password</p>
 			<input type="password" name="password" placeholder="Password">
 			<button type="submit">Register</button>
