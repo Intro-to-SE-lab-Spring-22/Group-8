@@ -1,0 +1,14 @@
+
+body{
+	background: content-box linear-gradient(to bottom right, blue, red);
+}
+
+
+.center{
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+

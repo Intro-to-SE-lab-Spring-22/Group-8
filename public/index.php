@@ -28,16 +28,16 @@ $Auth = new \Group8\Spyke\Auth;
 			<img src="#" alt="">
 		</div>
 		<ul class="nav-area">
-			<li><a href="#">Home</li>
-			<li><a href="#">About</li>
-			<li><a href="#">Login</li>
-			<li><a href="#">Signup</li>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="Login.php">Login</a></li>
+			<li><a href="Register.php">Register</a></li>
 
 		</ul>
 	</div>
 	<div class="Welcome-text">
 		<h1>We are Spyke</h1>
-		<li><a href="#">Contact Us</li>
+		<ul><li><a href="#">Contact Us</a></li></ul>
 
 	</div>
 </body>

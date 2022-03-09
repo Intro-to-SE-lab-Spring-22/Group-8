@@ -1,13 +1,11 @@
 *{
 	margin: 0;
 	padding: 0;
-
 }
 
 .wrapper{
 	width:  1170px;
 	margin: auto;
-
 }
 
 header{
@@ -17,19 +15,26 @@ header{
 	background-size: cover;
 	background-position: center center;
 	position: relative;
+}
 
-}
 body{
-	background: content-box linear-gradient(rgba(255,148,25,1), rgba(255,255,255,0.4));
+	background-image: linear-gradient(to bottom right, blue, red);
+	background-attachment: fixed;
 }
+
 .nav-area{
-	list-stype: none;
 	float: right;
 	margin-top: 30px;
 }
+
+li{
+	list-style: none;
+}
+
 .nav-area li{
 	display:  inline-block;
 }
+
 .nav-area li a{
 	color:  #fff;	/*TODO*/
 	text-decoration:none;
@@ -37,29 +42,32 @@ body{
 	font-family: poppins; /*TODO*/
 	font-size: 16px;
 }
-.nav-area li a:hover{
+
+li a:hover{
 	background: #fff;
 	color:  #333;
 }
+
 .logo img{
 	width: 100px;
 	height: auto;
 }
+
 .Welcome-text{
 	position: absolute;
 	width: 600px;
 	height: 300px;
 	margin: 20% 30%;
 	text-align: center;
-
 }
+
 .Welcome-text h1{
 	text-align: center;
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 60px;
-
 }
+
 .Welcome-text a{
 	border: 1px solid #fff;
 	padding: 10px 25px;
@@ -69,10 +77,4 @@ body{
 	margin-top: 20px;
 	display: inline-block;
 	color: #fff;
-
-
-}
-.Welcome-text a:hover{
-	background: #fff;
-	color: #333;
 }
