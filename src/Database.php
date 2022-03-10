@@ -24,7 +24,7 @@ class Database
 	protected function getCredentials()
 	{
 		// Get our database password.
-		return file_get_contents(__DIR__ . "/../password.txt");
+		return trim(file_get_contents(__DIR__ . "/../password.txt"));
 	}
 
 	// Pipes
