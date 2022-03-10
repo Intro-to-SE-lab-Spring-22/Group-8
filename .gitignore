@@ -1,2 +1,5 @@
 /vendor/
+/log/
 composer.lock
+password.txt
+public/test.php
