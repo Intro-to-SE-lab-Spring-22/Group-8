@@ -37,7 +37,7 @@ $Auth = new \Group8\Spyke\Auth;
 	</div>
 	<div class="Welcome-text">
 		<h1>We are Spyke</h1>
-		<ul><li><a href="Register.php"> Sell us your data? </a></li></ul>
+		<ul><li><a href="Register.php">Register here!</a></li></ul>
 
 	</div>
 </body>
