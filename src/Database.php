@@ -13,8 +13,7 @@ class Database
 		$engine = self::ENGINE;
 		$host = self::HOST;
 		// Compose DSN String
-		$this->dsn = ""; // Initialize string (Jakes code prettier)
-		$this->dsn .= "{$engine}:host={$host};";
+		$this->dsn = "{$engine}:host={$host};";
 		$this->dsn .= "dbname=spyke;";
 		$this->dsn .= "charset=utf8mb4;";
 
@@ -25,7 +24,7 @@ class Database
 	protected function getCredentials()
 	{
 		// Get our database password.
-		return file_get_contents(__DIR__ . "/../password.txt");
+		return file_get_contents(__DIR__ . "/../password.txt") ?? "BobbyTables-8";
 	}
 
 	// Pipes
