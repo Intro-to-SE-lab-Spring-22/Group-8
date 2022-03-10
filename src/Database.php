@@ -13,8 +13,7 @@ class Database
 		$engine = self::ENGINE;
 		$host = self::HOST;
 		// Compose DSN String
-		$this->dsn = ""; // Initialize string (Jakes code prettier)
-		$this->dsn .= "{$engine}:host={$host};";
+		$this->dsn = "{$engine}:host={$host};";
 		$this->dsn .= "dbname=spyke;";
 		$this->dsn .= "charset=utf8mb4;";
 
