@@ -19,9 +19,9 @@
 <body>
 	<div class="login-form">
 		<h1>Login</h1>
-		<form action="#" method="post">
+		<form action="action/login.php" method="post">
 			<p>User Name</p>
-			<input type="text" name="user" placeholder="User Name">
+			<input type="text" name="username" placeholder="User Name">
 			<p>Password</p>
 			<input type="password" name="password" placeholder="Password">
 			<button type="submit">Login</button>

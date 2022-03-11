@@ -20,6 +20,17 @@ Returns an associative array of the format
 `id -> username`
 for every user in Spyke.
 
-### getId() -> int | False
+### checkPassword($username, $password) -> bool
+Checks if `$username`'s password hash matches a given `$password`.
+This uses built-in hashing/verification functions, all is well.
+
+### checkRequirements($username, $password) -> [bool, bool]
+Checks if a given username and password meet the Spyke minimum requirements
+as-per the constants set within the class and SRS.
+Returns an array for the boolean of whether or not each field was met.
+**This method currently does not elaborate.**
+**Specific validation should be done client-side.**
+
+### getId($username) -> int | False
 Returns the ID number of a given username.
 If no such username exists, returns `false`.

@@ -25,6 +25,8 @@ CREATE DATABASE spyke;
 USE spyke;
 CREATE TABLE `users` (
 	`username` TEXT(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+	`firstName` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+	`lastName` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`pass` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 	PRIMARY KEY (`id`)
