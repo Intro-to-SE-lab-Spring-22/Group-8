@@ -30,11 +30,13 @@ if ($check[0] && $check[1]) {
         $Logger->changeUser($newId, $username);
         $Logger->add("New account created!", false, "User", 201);
 		http_response_code(204);
+        header("Location: ../Login.php");
     } else {
         // The requirements were valid, but there was a database error.
         $Logger->add("Account creation failure", true, "User", 500);
 		http_response_code(500);
         echo '<script>alert("There was a server side error, please try again later.")</script>';
+        header("Location: ../Register.php");
     }
 } else {
     // The new user did not meet all requirements.
@@ -42,7 +44,7 @@ if ($check[0] && $check[1]) {
 	elseif (!$check[0]) {$errorMsg = "Username unavailable"; echo '<script>alert("Username unavailable")</script>';}
     elseif($password != $confirmPass){$errorMsg = 'Password does not match';echo '<script>alert("Password does not match")</script>';}
 	else {$errorMsg = "Unacceptable password"; echo '<script>alert("Unacceptable password")</script>';}
-
+    header("Location: ../Register.php");
 	$Logger->add("Account creation failure: {$errorMsg}", true, "User", 400);
 	http_response_code(400);
 }
