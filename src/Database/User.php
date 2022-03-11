@@ -38,6 +38,17 @@ class User extends \Group8\Spyke\Database
 		}
 	}
 
+	public function checkPassword($username, $password)
+	{
+		// Checks if a password matches.
+		$sql = "SELECT pass FROM users WHERE username = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$username]);
+		$hash = $obj->fetch()[0];
+
+		return password_verify($password, $hash);
+	}
+
 	public function checkRequirements($username, $password)
 	{
 		$status = [true, true];
