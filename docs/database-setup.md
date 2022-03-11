@@ -5,9 +5,9 @@
 Spyke uses a MySQL database.
 
 ##### Linux / WSL
-`sudo apt update`
-`sudo apt install mysql-server`
-`sudo apt install php-mysql`
+`sudo apt update`  \
+`sudo apt install mysql-server`  \
+`sudo apt install php-mysql`  \
 `sudo mysql_secure_installation`
 
 ##### Windows (Experimental)

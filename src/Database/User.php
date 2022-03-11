@@ -4,7 +4,7 @@ namespace Group8\Spyke\Database;
 class User extends \Group8\Spyke\Database
 {
 	public const USER_MIN = 3;
-	public const USER_MAX = 30;
+	public const USER_MAX = 16;
 	public const PASS_MIN = 8;
 	public const PASS_MAX = 128;
 
