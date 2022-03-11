@@ -28,6 +28,12 @@
 			<input type="text" name="username" placeholder="User Name">
 			<p>Password</p>
 			<input type="password" name="password" placeholder="Password">
+			<p>Confirm Password</p>
+			<input type="confirm" name="confirm" placeholder="Confirm Password">
+			<p>First Name </p>
+			<input type="firstname" name="firstname" placeholder="First Name">
+			<p>Last Name</p>
+			<input type="lastname" name="lastname" placeholder="Last Name">
 			<button type="submit">Register</button>
 		</form>
 	</div>
