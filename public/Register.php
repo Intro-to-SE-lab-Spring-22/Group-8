@@ -29,11 +29,11 @@
 			<p>Password</p>
 			<input type="password" name="password" placeholder="Password">
 			<p>Confirm Password</p>
-			<input type="confirm" name="confirm" placeholder="Confirm Password">
+			<input type="password" name="confirm" placeholder="Confirm Password">
 			<p>First Name </p>
-			<input type="firstname" name="firstname" placeholder="First Name">
+			<input type="text" name="firstname" placeholder="First Name">
 			<p>Last Name</p>
-			<input type="lastname" name="lastname" placeholder="Last Name">
+			<input type="text" name="lastname" placeholder="Last Name">
 			<button type="submit">Register</button>
 		</form>
 	</div>
