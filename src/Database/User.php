@@ -9,15 +9,17 @@ class User extends \Group8\Spyke\Database
 	public const PASS_MAX = 128;
 
 	// Setters
-	public function registerUser($username, $pass)
+	public function registerUser($username, $pass, $first, $last)
 	{
 		if (!$this->getID($username)) {
 			$data = [
 				"username" => $username,
 				"id" => NULL,
-				"pass" => password_hash($pass, PASSWORD_DEFAULT)
+				"pass" => password_hash($pass, PASSWORD_DEFAULT),
+				"firstName" => $first,
+				"lastName"=>$last
 			];
-			$sql = "INSERT INTO users (username, id, pass) VALUES (:username, :id, :pass)";
+			$sql = "INSERT INTO users (username, id, pass, firstName, lastName) VALUES (:username, :id, :pass, :firstName, :lastName)";
 			return $this->prepare($sql)->execute($data);
 		} else {
 			return false;
@@ -37,7 +39,7 @@ class User extends \Group8\Spyke\Database
 			return false;
 		}
 	}
-
+  
 	public function checkPassword($username, $password)
 	{
 		// Checks if a password matches.
@@ -49,7 +51,8 @@ class User extends \Group8\Spyke\Database
 		return password_verify($password, $hash);
 	}
 
-	public function checkRequirements($username, $password)
+  public function checkRequirements($username, $password, $confirm)
+
 	{
 		$status = [true, true];
 		$minMax = function($string, $min, $max)
@@ -62,7 +65,7 @@ class User extends \Group8\Spyke\Database
 		// Check Username
 		$status[0] = $minMax($username, self::USER_MIN, self::USER_MAX) && !$this->getID($username);
 		// Check Password
-		$status[1] = $minMax($password, self::PASS_MIN, self::PASS_MAX);
+		$status[1] = $minMax($password, self::PASS_MIN, self::PASS_MAX) && $password == $confirm;
 		// Finalize
 		return $status;
 	}
