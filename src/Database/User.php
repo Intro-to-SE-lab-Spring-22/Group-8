@@ -19,7 +19,8 @@ class User extends \Group8\Spyke\Database
 				"firstName" => $first,
 				"lastName"=>$last
 			];
-			$sql = "INSERT INTO users (username, id, pass, firstName, lastName) VALUES (:username, :id, :pass, :firstName, :lastName)";
+			$sql = "INSERT INTO users (username, id, pass, firstName, lastName)
+					VALUES (:username, :id, :pass, :firstName, :lastName)";
 			return $this->prepare($sql)->execute($data);
 		} else {
 			return false;
@@ -39,7 +40,7 @@ class User extends \Group8\Spyke\Database
 			return false;
 		}
 	}
-  
+
 	public function checkPassword($username, $password)
 	{
 		// Checks if a password matches.
@@ -62,10 +63,10 @@ class User extends \Group8\Spyke\Database
 			$checkMax = $len <= $max;
 			return $checkMin && $checkMax;
 		};
-		// Check Username
-		$status[0] = $minMax($username, self::USER_MIN, self::USER_MAX) && !$this->getID($username);
-		// Check Password
-		$status[1] = $minMax($password, self::PASS_MIN, self::PASS_MAX) && $password == $confirm;
+		$minMax = self::common("minMax", self::USER_MIN, $username, self::USER_MAX);
+		// Check Username and Password
+		$status[0] = $minMax && !$this->getID($username);
+		$status[1] = $minMax && $password == $confirm;
 		// Finalize
 		return $status;
 	}
