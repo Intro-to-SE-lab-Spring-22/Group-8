@@ -44,8 +44,9 @@ class Database
 		//? With no more than three arguments.
 		switch ($function) {
 			case "minMax":
-				// a = min, c = value, b = max
-				return ($a <= $b && $b <= $c);
+				// a = min, b = value, c = max
+				$len = strlen($b);
+				return ($a <= $len && $len <= $c);
 				break;
 			default:
 				return null;
