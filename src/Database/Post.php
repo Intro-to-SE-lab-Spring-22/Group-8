@@ -26,7 +26,8 @@ class Post extends \Group8\Spyke\Database
 			];
 			$sql = "INSERT INTO posts (id, author, content, hidden, timestamp, likes, dislikes)
 					VALUES (:id, :author, :content, :hidden, :timestamp, :likes, :dislikes)";
-			return $this->prepare($sql)->execute($data);
+			// Return the generated ID of the post
+			return ($this->prepare($sql)->execute($data)) ? $this->pdo->lastInsertId() : false;
 		} else {
 			//! The post failed to meet requirements.
 			return false;
