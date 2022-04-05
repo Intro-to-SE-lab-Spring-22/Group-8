@@ -5,7 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $Auth = new \Group8\Spyke\Auth;
 
-$UserFriends = new \Group8\Spyke\User;
+
 ?>
 
 
@@ -20,6 +20,7 @@ $UserFriends = new \Group8\Spyke\User;
 
 
 <!-- SETTINGS MODAL -->
+<h2> settings button</h2>
 <button id="Settings-myBtn">Settings</button>
 
 <!-- The Modal -->
@@ -70,6 +71,7 @@ window.onclick = function(event) {
 
 
 <!-- CREATE POST MODAL --> 
+<h2>Post</h2>
 <button id="Post-myBtn">Create post</button>
 
 <!-- The Modal -->
