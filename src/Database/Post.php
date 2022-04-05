@@ -27,7 +27,8 @@ class Post extends \Group8\Spyke\Database
 			$sql = "INSERT INTO posts (id, author, content, hidden, timestamp, likes, dislikes)
 					VALUES (:id, :author, :content, :hidden, :timestamp, :likes, :dislikes)";
 			// Return the generated ID of the post
-			return ($this->prepare($sql)->execute($data)) ? $this->pdo->lastInsertId() : false;
+			$this->prepare($sql)->execute($data);
+			return  $this->pdo->lastInsertId();
 		} else {
 			//! The post failed to meet requirements.
 			return false;
@@ -58,7 +59,7 @@ class Post extends \Group8\Spyke\Database
 				WHERE hidden = false
 				$hidden
 				$author
-				ORDER BY id
+				ORDER BY id DESC
 				LIMIT :start, :limit";
 		// Spicy SQL
 		$obj = $this->prepare($sql);
