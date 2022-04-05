@@ -31,6 +31,16 @@ CREATE TABLE `users` (
 	`pass` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 	PRIMARY KEY (`id`)
 );
+CREATE TABLE `posts` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `author` INT NOT NULL,
+    `content` TEXT(255),
+    `hidden` BOOLEAN,
+    `timestamp` INT unsigned,
+    `likes` INT unsigned DEFAULT '0',
+    `dislikes` INT unsigned DEFAULT '0',
+    PRIMARY KEY (`id`)
+);
 
 CREATE USER 'spyke'@'localhost' IDENTIFIED BY 'UseYourOwnPassword';
 GRANT ALL PRIVILEGES ON spyke.* TO 'spyke'@'localhost';
