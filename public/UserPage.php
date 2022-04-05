@@ -4,11 +4,8 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 $Auth = new \Group8\Spyke\Auth;
-
-$UserFriends = new \Group8\Spyke\User;
+$PostDB = new \Group8\Spyke\Database\Post;
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -37,6 +34,15 @@ $UserFriends = new \Group8\Spyke\User;
 
 </div>
 
+<?php
+
+foreach($PostDB->getFeed() as $post) {
+	$Post = new Group8\Spyke\Post($post);
+	print $Post->render();
+}
+
+?>
+
 <script>
 // Get the modal
 var modal = document.getElementById("Settings-myModal");
@@ -47,7 +53,7 @@ var btn = document.getElementById("Settings-myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("Settings-modal-close")[0];
 
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
 }
@@ -69,7 +75,7 @@ window.onclick = function(event) {
 
 
 
-<!-- CREATE POST MODAL --> 
+<!-- CREATE POST MODAL -->
 <button id="Post-myBtn">Create post</button>
 
 <!-- The Modal -->
@@ -78,11 +84,11 @@ window.onclick = function(event) {
   <!-- Modal content -->
   <div class="Post-modal-content">
     <span class="Post-modal-close">&times;</span>
-      
-    <form action="/action_page.php">                                              <!-- TODO -->
-    <input type="text" id="Pdata" name="Pdata" value="What's on your mind?"><br>
+
+    <form action="/action/post.php" method="post">                                              <!-- TODO -->
+    <input type="text" id="content" name="content" placeholder="What's on your mind?"><br>
     <input  type="submit" value="Post">
-    </form> 
+    </form>
   </div>
 
 </div>
@@ -97,7 +103,7 @@ var btn = document.getElementById("Post-myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("Post-modal-close")[0];
 
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
 }
@@ -119,7 +125,7 @@ window.onclick = function(event) {
 <!-- FRIENDS TAB  right side under header-->
 
 
-<!-- PENDING TAB right side, under friends--> 
+<!-- PENDING TAB right side, under friends-->
 
 <!-- POSTS TAB -  Middle of screen-->
 
