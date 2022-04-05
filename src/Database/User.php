@@ -76,6 +76,16 @@ class User extends \Group8\Spyke\Database
 		return $user ? reset($user) : false;
 	}
 
+	public function getUsername(int $id)
+	{
+		// Get a username from an ID
+		$sql = "SELECT username FROM users WHERE id = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$id]);
+		$user = $obj->fetch(\PDO::FETCH_ASSOC);
+		return $user ? reset($user) : false;
+	}
+
 	// Destroyers
 	public function deleteUser(int $id)
 	{
