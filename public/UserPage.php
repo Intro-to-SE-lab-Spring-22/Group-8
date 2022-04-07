@@ -38,30 +38,18 @@ $Auth = new \Group8\Spyke\Auth;
 
 </div>
 
-<script>
-// Get the modal
+<script src="assets/js/UserPage.js">
 var smodal = document.getElementById("Settings-myModal");
-
-// Get the button that opens the modal
 var sbtn = document.getElementById("Settings-myBtn");
-
-// Get the <span> element that closes the modal
 var sspan = document.getElementsByClassName("Settings-modal-close")[0];
-
-// When the user clicks the button, open the modal 
-sbtn.onclick = function() {
-	smodal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
+sbtn.onclick = function() { DisplayModal(smodal); }
 sspan.onclick = function() {
-	smodal.style.display = "none";
-}
+	CloseModal(smodal); }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
 	if (event.target == smodal) {
-		smodal.style.display = "none";
+		CloseModal(smodal);
 	}
 }
 </script>
@@ -91,30 +79,16 @@ window.onclick = function(event) {
 </div>
 
 
-<script>
+<script src="assets/js/UserPage.js">
 // Get the modal
 var pmodal = document.getElementById("Post-myModal");
-
-// Get the button that opens the modal
 var pbtn = document.getElementById("Post-myBtn");
-
-// Get the <span> element that closes the modal
 var pspan = document.getElementsByClassName("Post-modal-close")[0];
-
-// When the user clicks the button, open the modal 
-pbtn.onclick = function() {
-	pmodal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-pspan.onclick = function() {
-	pmodal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
+pbtn.onclick = function() {	pmodal.style.display = "block"; }
+pspan.onclick = function() { CloseModal(pmodal); }
 window.onclick = function(event) {
 	if (event.target == pmodal) {
-		pmodal.style.display = "none";
+		CloseModal(pmodal);
 	}
 }
 
@@ -133,7 +107,7 @@ window.onclick = function(event) {
 
 
 <script src="assets/js/UserPage.js">
-	L = ["a", "b", "c","d"];
+	var L = ["a", "b", "c","d"];
 GetFriendorPendingList("Friends",L);          
 </script>
 
@@ -154,7 +128,7 @@ GetFriendorPendingList("Friends",L);
 
 <!-- TODO set data equal to an array of friends from friends db -->
 <script src="assets/js/UserPage.js">
-	L = ["a", "b", "c","d"];
+ var L = ["a", "b", "c","d"];
 GetFriendorPendingList("Pending",L);          
 </script>
 
