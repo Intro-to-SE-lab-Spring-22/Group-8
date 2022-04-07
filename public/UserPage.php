@@ -18,112 +18,151 @@ $Auth = new \Group8\Spyke\Auth;
 </head>
 <body>
 
-
+<header>
 <!-- SETTINGS MODAL -->
 <h2> settings button</h2>
-<button id="Settings-myBtn">Settings</button>
+<button id="Settings-myBtn"><img src="assets/img/Settings_Button.jpg"></button>
 
 <!-- The Modal -->
 <div id="Settings-myModal" class="Settings-modal">
 
-  <!-- Modal content -->
-  <div class="Settings-modal-content">
-    <span class="Settings-modal-close">&times;</span>
-    <button onclick="">View Newest Posts</button>			<!-- TODO -->
-    <p></p>
-    <button>View Most Liked Posts</button>					<!-- TODO -->
-    <p></p>
-    <button>Logout</button>
-  </div>
+	<!-- Modal content -->
+	<div class="Settings-modal-content">
+		<span class="Settings-modal-close">&times;</span>
+		<button onclick="">View Newest Posts</button>			<!-- TODO -->
+		<p></p>
+		<button>View Most Liked Posts</button>					<!-- TODO -->
+		<p></p>
+		<button>Logout</button>
+	</div>
 
 </div>
 
 <script>
 // Get the modal
-var modal = document.getElementById("Settings-myModal");
+var smodal = document.getElementById("Settings-myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("Settings-myBtn");
+var sbtn = document.getElementById("Settings-myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("Settings-modal-close")[0];
+var sspan = document.getElementsByClassName("Settings-modal-close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+sbtn.onclick = function() {
+	smodal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+sspan.onclick = function() {
+	smodal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+	if (event.target == smodal) {
+		smodal.style.display = "none";
+	}
 }
 </script>
 
+</header>
 
+<main>
 
-
-
-<!-- CREATE POST MODAL --> 
+<div class="AddPost"> 
+<!-- POSTS TAB -  Middle of screen-->
 <h2>Post</h2>
 <button id="Post-myBtn">Create post</button>
 
 <!-- The Modal -->
 <div id="Post-myModal" class="Post-modal">
 
-  <!-- Modal content -->
-  <div class="Post-modal-content">
-    <span class="Post-modal-close">&times;</span>
-      
-    <form action="/action_page.php">                                              <!-- TODO -->
-    <input type="text" id="Pdata" name="Pdata" value="What's on your mind?"><br>
-    <input  type="submit" value="Post">
-    </form> 
-  </div>
+	<!-- Modal content -->
+	<div class="Post-modal-content">
+		<span class="Post-modal-close">&times;</span>
+			
+		<form action="/action_page.php">                                              <!-- TODO -->
+		<input type="text" id="Pdata" name="Pdata" value="What's on your mind?"><br>
+		<input  type="submit" value="Post">
+		</form> 
+	</div>
 
 </div>
 
+
 <script>
 // Get the modal
-var modal = document.getElementById("Post-myModal");
+var pmodal = document.getElementById("Post-myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("Post-myBtn");
+var pbtn = document.getElementById("Post-myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("Post-modal-close")[0];
+var pspan = document.getElementsByClassName("Post-modal-close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+pbtn.onclick = function() {
+	pmodal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+pspan.onclick = function() {
+	pmodal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+	if (event.target == pmodal) {
+		pmodal.style.display = "none";
+	}
 }
+
+</script>
+</div>
+
+</main>
+
+<aside>
+<div id="friends">
+<!-- FRIENDS TAB  right side under header-->
+
+<div id = "friends-title">Friends</div>
+<div id="friends-content">
+<ul id="Friends"></ul>
+
+
+<script src="assets/js/UserPage.js">
+	L = ["a", "b", "c","d"];
+GetFriendorPendingList("Friends",L);          
 </script>
 
 
-<!-- FRIENDS TAB  right side under header-->
+</div>
+
+</div>
 
 
+
+<div id="pending">
 <!-- PENDING TAB right side, under friends--> 
+<div id="pending-title">Requests</div>
+<div id="pending-content">
+<ul id="Pending"></ul>
 
-<!-- POSTS TAB -  Middle of screen-->
+
+
+<!-- TODO set data equal to an array of friends from friends db -->
+<script src="assets/js/UserPage.js">
+	L = ["a", "b", "c","d"];
+GetFriendorPendingList("Pending",L);          
+</script>
+
+</div>
+</div>
+
+</aside>
+
 
 
 </body>
