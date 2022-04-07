@@ -34,14 +34,14 @@ $PostDB = new \Group8\Spyke\Database\Post;
 
 </div>
 
+<main>
 <?php
-
 foreach($PostDB->getFeed() as $post) {
 	$Post = new Group8\Spyke\Post($post);
 	print $Post->render();
 }
-
 ?>
+</main>
 
 <script>
 // Get the modal
