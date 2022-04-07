@@ -1,0 +1,11 @@
+<html>
+	<header>
+	<main>
+		<article>
+	<aside>
+		<div id="friends">
+			<div id="friends-title">
+			<div id="friends-content">
+		<div id="pending">
+			<div id="pending-title">
+			<div id="pending-content">
