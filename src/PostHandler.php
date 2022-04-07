@@ -28,4 +28,8 @@ class PostHandler extends \Group8\Spyke\Database\Post
 	public function feedByScore(bool $desc = true, int $page = 0, int $author = null) {
 		return $this->renderFeed($this->getFeed("rating", $page, $desc, $author));
 	}
+
+	public function feedByAuthor(int $author, bool $desc = true, int $page = 0) {
+		return $this->feedByTime($desc, $page, $author);
+	}
 }

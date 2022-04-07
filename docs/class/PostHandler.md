@@ -10,6 +10,10 @@ All docs there apply.
 The PostHandler class provides a simple way managing feeds
 and collections of posts. There are multiple built-in ways
 to render feeds.
+
 #### feedByTime		(Desc [bool], Page [int], Author[int])
 #### feedByLikes	(Desc [bool], Page [int], Author[int])
 #### feedByScore	(Desc [bool], Page [int], Author[int])
+#### feedByAuthor	(Author[int], Desc [bool], Page [int])*
+* *Note:*	feedByAuthor is equivalent to feedByTime
+			with the *Author* argument explicitly set.
