@@ -4,7 +4,7 @@ namespace Group8\Spyke\Database;
 class Post extends \Group8\Spyke\Database
 {
 	public const CONTENT_MIN = 1; //?			Minimum amount of characters in a post.
-	public const CONTENT_MAX = 256; //?			Max length of a post.
+	public const CONTENT_MAX = 255; //?			Max length of a post.
 	public const PAGE_SIZE = 25; //?			How many posts to show per-page.
 	public const FACEBOOK_DELETE = true; //!	Should 'Delete' just *hide* the post?
 	private const NIGHTVISION = false; //!		Reveal all hidden posts, globally.
@@ -45,21 +45,42 @@ class Post extends \Group8\Spyke\Database
 		return $obj->fetch();
 	}
 
-	public function getFeed(int $id = null, int $page = 0, int $author = null)
+	public function getFeed(
+		string $orderBy = "id",
+		int $page = 0,
+		bool $desc = true,
+		int $author = null
+	)
 	{
-		//?	Returns an array of Post objects--
-		//?		If a specific author is specified,
-		//?		only their posts are returned.
-		//!		The NIGHTVISION constant toggles hidden posts.
-		$hidden = self::NIGHTVISION ? "AND hidden = true" : "";
-		$author = $author ? "AND author = $author" : "";
+		// Configure ordering
+		switch ($orderBy) {
+			case "id":
+			case "timestamp":
+				$orderBy = "id";
+				break;
+			case "likes":
+			case "dislikes":
+				break;
+			case "rating":
+				$orderBy = "likes/(likes+dislikes)";
+				break;
+			default:
+				$orderBy = "id";
+				break;
+		}
+		$desc = ($desc) ? "DESC" : "ASC";
+		// Set flags
 		$limit = self::PAGE_SIZE;
-		$start = $page * self::PAGE_SIZE;
+		$start = $page * $limit;
+		//? Query Strings
+		$hidden = self::NIGHTVISION ? "AND hidden = true" : "";
+		$author = ($author > 0) ? "AND author = $author" : "";
+		//
 		$sql = "SELECT * FROM posts
-				WHERE hidden = false
+				WHERE hidden = 0
 				$hidden
 				$author
-				ORDER BY id DESC
+				ORDER BY $orderBy $desc
 				LIMIT :start, :limit";
 		// Spicy SQL
 		$obj = $this->prepare($sql);
