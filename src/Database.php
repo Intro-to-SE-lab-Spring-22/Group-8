@@ -37,4 +37,19 @@ class Database
 	{
 		return $this->pdo->prepare(...$args);
 	}
+
+	public static function common(string $function, $a = null, $b = null, $c = null)
+	{
+		//?	Common functions for all subclasses...
+		//? With no more than three arguments.
+		switch ($function) {
+			case "minMax":
+				// a = min, b = value, c = max
+				$len = strlen($b);
+				return ($a <= $len && $len <= $c);
+				break;
+			default:
+				return null;
+		}
+	}
 }

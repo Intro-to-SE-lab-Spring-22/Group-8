@@ -34,3 +34,7 @@ Returns an array for the boolean of whether or not each field was met.
 ### getId($username) -> int | False
 Returns the ID number of a given username.
 If no such username exists, returns `false`.
+
+### getUsername($id) -> string | False
+Returns the username of a given ID.
+If no such ID exists, returns `false`.
