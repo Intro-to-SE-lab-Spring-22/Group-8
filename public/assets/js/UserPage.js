@@ -1,13 +1,8 @@
 
 
 
-function GetFriendList(){
 
-}
-function GetPedningList(){
-
-}
-function GetFriendorPendingList(ULName, FriendList){
+function GetFriendList(ULName, FriendList){
 	let friendData = FriendList;
 	let list = document.getElementById(ULName);
 	friendData.forEach((item) =>{
@@ -34,6 +29,7 @@ function CreateFriendModal(button){
 		let Viewpost = document.getElementById("ViewPosts");
 		console.log(Viewpost);
 		let RemoveFriend = document.getElementById("Add/Remove");
+		RemoveFriend.innerText = "Remove Friend";
 		console.log(RemoveFriend);
 		CloseModal.onclick = function(event){
 			modal.style.display="none";
@@ -41,7 +37,49 @@ function CreateFriendModal(button){
 		}
 		console.log("CreateFriendModal");
 
-		modalText.innerText ="This is a modal for "+button.innerText;
+		modalText.innerText ="This is a Friend modal for "+button.innerText;
+		
+		modal.style.display="block";
+}
+
+
+
+function GetPendingList(ULName, FriendList){
+	let friendData = FriendList;
+	let list = document.getElementById(ULName);
+	friendData.forEach((item) =>{
+		let li = document.createElement("li");
+		let btn = document.createElement("button");
+			btn.onclick = function(event){
+				CreatePendingModal(btn);
+			}
+		btn.innerText = item;
+		li.appendChild(btn);
+		list.appendChild(li);
+
+		
+
+	});	
+}
+
+function CreatePendingModal(button){
+		let modal = document.getElementById("UserModal");
+		let modalContent = modal.children[0];
+		let modalText = modalContent.children[0];
+		let CloseModal = document.getElementById("CloseButton");
+		console.log(CloseButton);
+		let Viewpost = document.getElementById("ViewPosts");
+		console.log(Viewpost);
+		let AddFriend = document.getElementById("Add/Remove");
+		AddFriend.innerText = "Add Friend";
+		console.log(AddFriend);
+		CloseModal.onclick = function(event){
+			modal.style.display="none";
+			
+		}
+		console.log("CreateFriendModal");
+
+		modalText.innerText ="This is a Pending modal for "+button.innerText;
 		
 		modal.style.display="block";
 }
