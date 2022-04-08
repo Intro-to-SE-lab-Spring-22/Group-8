@@ -6,5 +6,4 @@ workflows:
     jobs:
       - cypress/run:
 
-
  
