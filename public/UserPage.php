@@ -15,6 +15,7 @@ $Auth = new \Group8\Spyke\Auth;
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="assets/css/UserPage.css">
+<script type="text/javascript" src="assets/js/UserPage.js"></script>
 </head>
 <body>
 
@@ -38,7 +39,7 @@ $Auth = new \Group8\Spyke\Auth;
 
 </div>
 
-<script src="assets/js/UserPage.js">
+<script type= "text/javascript" src="assets/js/UserPage.js">
 var smodal = document.getElementById("Settings-myModal");
 var sbtn = document.getElementById("Settings-myBtn");
 var sspan = document.getElementsByClassName("Settings-modal-close")[0];
@@ -79,7 +80,7 @@ window.onclick = function(event) {
 </div>
 
 
-<script src="assets/js/UserPage.js">
+<script type="text/javascript" src="assets/js/UserPage.js">
 // Get the modal
 var pmodal = document.getElementById("Post-myModal");
 var pbtn = document.getElementById("Post-myBtn");
@@ -106,7 +107,7 @@ window.onclick = function(event) {
 <ul id="Friends"></ul>
 
 
-<script src="assets/js/UserPage.js">
+<script type="text/javascript" src="assets/js/UserPage.js">
 	var L = ["a", "b", "c","d"];
 GetFriendorPendingList("Friends",L);          
 </script>
@@ -127,7 +128,7 @@ GetFriendorPendingList("Friends",L);
 
 
 <!-- TODO set data equal to an array of friends from friends db -->
-<script src="assets/js/UserPage.js">
+<script type="text/javascript" src="assets/js/UserPage.js">
  var L = ["a", "b", "c","d"];
 GetFriendorPendingList("Pending",L);          
 </script>
