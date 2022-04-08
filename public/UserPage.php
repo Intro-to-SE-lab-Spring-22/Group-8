@@ -15,10 +15,10 @@ $Auth = new \Group8\Spyke\Auth;
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="assets/css/UserPage.css">
-<script type="text/javascript" src="assets/js/UserPage.js"></script>
+
 </head>
 <body>
-
+<script src="assets/js/UserPage.js"></script>
 <header>
 <!-- SETTINGS MODAL -->
 <h2> settings button</h2>
@@ -39,13 +39,14 @@ $Auth = new \Group8\Spyke\Auth;
 
 </div>
 
-<script type= "text/javascript" src="assets/js/UserPage.js">
+<script type= "text/javascript">
 var smodal = document.getElementById("Settings-myModal");
 var sbtn = document.getElementById("Settings-myBtn");
 var sspan = document.getElementsByClassName("Settings-modal-close")[0];
-sbtn.onclick = function() { DisplayModal(smodal); }
+sbtn.onclick = function() { OpenModal(smodal); }
 sspan.onclick = function() {
-	CloseModal(smodal); }
+	CloseModal(smodal);
+	}
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -80,7 +81,7 @@ window.onclick = function(event) {
 </div>
 
 
-<script type="text/javascript" src="assets/js/UserPage.js">
+<script type="text/javascript">
 // Get the modal
 var pmodal = document.getElementById("Post-myModal");
 var pbtn = document.getElementById("Post-myBtn");
@@ -107,8 +108,8 @@ window.onclick = function(event) {
 <ul id="Friends"></ul>
 
 
-<script type="text/javascript" src="assets/js/UserPage.js">
-	var L = ["a", "b", "c","d"];
+<script type="text/javascript">
+	var L = ["a", "b", "c","d"]; // TODO Create method of storing usernames from username database in list
 GetFriendorPendingList("Friends",L);          
 </script>
 
@@ -128,11 +129,22 @@ GetFriendorPendingList("Friends",L);
 
 
 <!-- TODO set data equal to an array of friends from friends db -->
-<script type="text/javascript" src="assets/js/UserPage.js">
+<script type="text/javascript">
  var L = ["a", "b", "c","d"];
 GetFriendorPendingList("Pending",L);          
 </script>
 
+
+
+
+</div>
+</div>
+<div id="UserModal" class="UserModal">
+<div id="UserModalContent" class="UserModalContent">
+<p id="UserModalText"></p>
+<button id="CloseButton">Close</button>
+<button id="ViewPosts">View User Posts</button>
+<button id="Add/Remove"></button>
 </div>
 </div>
 
