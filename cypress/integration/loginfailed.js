@@ -2,7 +2,7 @@ describe('Login TestCase', () => {
     it("failed login", () => {
 
       cy.visit('https://spyke.msstate.wolfgang.space/')
-
+//incorrect credentials from user
       cy.contains('Login').click()
       cy.get('input[name=username]')
       .type('imstupid')

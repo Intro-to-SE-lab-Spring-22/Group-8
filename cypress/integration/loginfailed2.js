@@ -1,15 +1,15 @@
 describe('Login TestCase', () => {
-    it("Successful login", () => {
+    it("failed login2", () => {
 
       cy.visit('https://spyke.msstate.wolfgang.space/')
-
+//Puts in sets of short login credentials 
       cy.contains('Login').click()
       cy.get('input[name=username]')
-      .type('valid_userName')
-      .should('have.value', 'valid_userName')
+      .type('1')
+      .should('have.value', '1')
       cy.get('input[name=password]')
-      .type('validPass12')
-      .should('have.value', 'validPass12')
+      .type('1')
+      .should('have.value', '1')
       cy.get('form').submit()
       cy.pause()
 
