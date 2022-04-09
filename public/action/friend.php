@@ -9,8 +9,8 @@ $FriendDB = new Group8\Spyke\FriendHandler();
 $UserDB = new Group8\Spyke\Database\User();
 $Logger = new Group8\Spyke\Log();
 
-$user_a = $_POST["user"];
-$user_b = $_SESSION["user"]; //?	The user responsible
+$user_b = $_POST["user"];
+$user_a = $_SESSION["user"]; //?	The user responsible
 $action = $_POST["action"];
 
 switch ($action) {
