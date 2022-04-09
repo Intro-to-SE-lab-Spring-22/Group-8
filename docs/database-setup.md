@@ -41,6 +41,13 @@ CREATE TABLE `posts` (
     `dislikes` INT unsigned DEFAULT '0',
     PRIMARY KEY (`id`)
 );
+CREATE TABLE `friends` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`adam` INT NOT NULL COMMENT 'Older User',
+	`eve` INT NOT NULL COMMENT 'Younger User',
+	`relationship` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+	PRIMARY KEY (`id`)
+);
 
 CREATE USER 'spyke'@'localhost' IDENTIFIED BY 'UseYourOwnPassword';
 GRANT ALL PRIVILEGES ON spyke.* TO 'spyke'@'localhost';

@@ -30,9 +30,9 @@ $Auth = new \Group8\Spyke\Auth;
 	<!-- Modal content -->
 	<div class="Settings-modal-content">
 		<span class="Settings-modal-close">&times;</span>
-		<button onclick="">View Newest Posts</button>			<!-- TODO -->
+		<button id="vnp">View Newest Posts</button>			<!-- TODO -->
 		<p></p>
-		<button>View Most Liked Posts</button>					<!-- TODO -->
+		<button id="vlp">View Most Liked Posts</button>					<!-- TODO -->
 		<p></p>
 		<button>Logout</button>
 	</div>
@@ -42,6 +42,8 @@ $Auth = new \Group8\Spyke\Auth;
 <script type= "text/javascript">
 var smodal = document.getElementById("Settings-myModal");
 var sbtn = document.getElementById("Settings-myBtn");
+var svnp = document.getElementById("vnp");
+var svlp = document.getElementById("vlp");
 var sspan = document.getElementsByClassName("Settings-modal-close")[0];
 sbtn.onclick = function() { OpenModal(smodal); }
 sspan.onclick = function() {
@@ -54,11 +56,18 @@ window.onclick = function(event) {
 		CloseModal(smodal);
 	}
 }
+svnp.onclick = function(){
+	ViewNewestPost();
+}
+svlp.onclick = function() {
+	ViewPopularPost();
+}
+
 </script>
 
 </header>
 
-<main>
+<main id="1234">
 
 <div class="AddPost"> 
 <!-- POSTS TAB -  Middle of screen-->
@@ -72,8 +81,8 @@ window.onclick = function(event) {
 	<div class="Post-modal-content">
 		<span class="Post-modal-close">&times;</span>
 			
-		<form action="/action_page.php">                                              <!-- TODO -->
-		<input type="text" id="Pdata" name="Pdata" value="What's on your mind?"><br>
+		<form action="action/post.php" method="post">                                              <!-- TODO -->
+		<input type="text" name="content" value="What's on your mind?"><br>
 		<input  type="submit" value="Post">
 		</form> 
 	</div>
@@ -97,6 +106,19 @@ window.onclick = function(event) {
 </script>
 </div>
 
+
+<script type="text/javascript">
+//    ID , Author, Content, Hidden?, Timestamp, Likes, Dislikes. 
+
+var Post1 = [19, 2,"Alphabet soup is great! " , false, 0 , 5 , 1 ];
+var Post2 = [24, 3,"Alphabet soup is meh! " , false, 1 , 3 , 3 ];
+var Post3 = [112, 4,"Alphabet soup is bad! " , false, 2 , 1 , 5 ];
+
+ShowPost(Post1);
+ShowPost(Post2);
+ShowPost(Post3);
+</script>
+
 </main>
 
 <aside>
@@ -110,7 +132,7 @@ window.onclick = function(event) {
 
 <script type="text/javascript">
 	var L = ["a", "b", "c","d"]; // TODO Create method of storing usernames from username database in list
-GetFriendorPendingList("Friends",L);          
+GetFriendList("Friends",L);          
 </script>
 
 
@@ -131,7 +153,7 @@ GetFriendorPendingList("Friends",L);
 <!-- TODO set data equal to an array of friends from friends db -->
 <script type="text/javascript">
  var L = ["a", "b", "c","d"];
-GetFriendorPendingList("Pending",L);          
+GetPendingList("Pending",L);          
 </script>
 
 

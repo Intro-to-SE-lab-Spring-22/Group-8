@@ -27,12 +27,12 @@ class Render
 	}
 
 	// Generates the <head> block and begins the <body> block.
-    protected function htmlHead(string $title = null)
+    public static function htmlHead(string $title = null)
     {
 		$coolTitle = isset($title)? " - {$title}": null;
         echo <<< EOT
 		<!DOCTYPE html>
-		<html>
+		<html lang="en">
 		<head>
 			<link rel="stylesheet" type="text/css"  href="assets/css/homepage.css">
 			<meta charset="utf-8">
@@ -44,7 +44,7 @@ class Render
     }
 
 	// Ends the <body> block and HTML.
-	protected function htmlTail()
+	public static function htmlTail()
     {
         echo <<< EOT
 		</body>
