@@ -5,6 +5,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 # Login
 
 $UserDB = new Group8\Spyke\Database\User();
+$Auth = new Group8\Spyke\Auth();
 $Logger = new Group8\Spyke\Log();
 
 $username = $_POST["username"];
@@ -16,6 +17,6 @@ if ($UserDB->checkPassword($username, $password)) {
 	print("Welcome.");
 } else {
 	// FAILURE.
-	header("Location: ../Login.php");
+	header("Location: ../Login.php?error=1");
 	print("Login failed.");
 }
