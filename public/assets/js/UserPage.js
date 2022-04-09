@@ -1,3 +1,7 @@
+
+
+
+
 function GetFriendList(ULName, FriendList){
 	let friendData = FriendList;
 	let list = document.getElementById(ULName);
@@ -167,58 +171,9 @@ function ViewUserPost(Username){
 
 */
 
-var smodal = document.getElementById("Settings-myModal");
-var sbtn = document.getElementById("Settings-myBtn");
-var svnp = document.getElementById("vnp");
-var svlp = document.getElementById("vlp");
-var sspan = document.getElementsByClassName("Settings-modal-close")[0];
-sbtn.onclick = function() {
-	OpenModal(smodal);
-}
-sspan.onclick = function() {
-	CloseModal(smodal);
-}
+function AddFriend(form) {
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-	if (event.target == smodal) {
-		CloseModal(smodal);
-	}
-}
-svnp.onclick = function() {
-	ViewNewestPost();
-}
-svlp.onclick = function() {
-	ViewPopularPost();
-}
-// Get the modal
-var pmodal = document.getElementById("Post-myModal");
-var pbtn = document.getElementById("Post-myBtn");
-var pspan = document.getElementsByClassName("Post-modal-close")[0];
-pbtn.onclick = function() {
-	pmodal.style.display = "block";
-}
-pspan.onclick = function() {
-	CloseModal(pmodal);
-}
-window.onclick = function(event) {
-	if (event.target == pmodal) {
-		CloseModal(pmodal);
-	}
-}
-
-//    ID , Author, Content, Hidden?, Timestamp, Likes, Dislikes. 
-
-var Post1 = [19, 2, "Alphabet soup is great! ", false, 0, 5, 1];
-var Post2 = [24, 3, "Alphabet soup is meh! ", false, 1, 3, 3];
-var Post3 = [112, 4, "Alphabet soup is bad! ", false, 2, 1, 5];
-
-ShowPost(Post1);
-ShowPost(Post2);
-ShowPost(Post3);
-
-var L = ["a", "b", "c", "d"]; // TODO Create method of storing usernames from username database in list
-GetFriendList("Friends", L);
-
-var L = ["a", "b", "c", "d"];
-GetPendingList("Pending", L);
+form = document.getElementById("Friend-form");
+form.submit();
+	 
+} 
