@@ -5,8 +5,6 @@ class Auth extends \Group8\Spyke\Database
 {
 	public static function startSession() {
 		session_start();
-		session_name("SpykeID");
-
 		// Set the User cookie if logged-in
 		!isset($_SESSION["user"]) or setcookie("user", $_SESSION["user"]);
 	}
