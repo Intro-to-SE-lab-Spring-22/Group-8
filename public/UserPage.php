@@ -1,12 +1,8 @@
 <?php
 # Spyke Main Index
 require __DIR__ . '/../vendor/autoload.php';
-$Auth = new \Group8\Spyke\Auth;
-
-session_start;
- $_SESSION["user"]
-
-
+use \Group8\Spyke\Auth;
+Auth::startSession();
 
 ?>
 
@@ -71,7 +67,7 @@ svlp.onclick = function() {
 
 <main id="1234">
 
-<div class="AddPost"> 
+<div class="AddPost">
 <!-- POSTS TAB -  Middle of screen-->
 <h2>Post</h2>
 <button id="Post-myBtn">Create post</button>
@@ -82,11 +78,11 @@ svlp.onclick = function() {
 	<!-- Modal content -->
 	<div class="Post-modal-content">
 		<span class="Post-modal-close">&times;</span>
-			
+
 		<form action="action/post.php" method="post">                                              <!-- TODO -->
 		<input type="text" name="content" value="What's on your mind?"><br>
 		<input  type="submit" value="Post">
-		</form> 
+		</form>
 	</div>
 
 </div>
@@ -110,7 +106,7 @@ window.onclick = function(event) {
 
 
 <script type="text/javascript">
-//    ID , Author, Content, Hidden?, Timestamp, Likes, Dislikes. 
+//    ID , Author, Content, Hidden?, Timestamp, Likes, Dislikes.
 
 var Post1 = [19, 2,"Alphabet soup is great! " , false, 0 , 5 , 1 ];
 var Post2 = [24, 3,"Alphabet soup is meh! " , false, 1 , 3 , 3 ];
@@ -134,7 +130,7 @@ ShowPost(Post3);
 
 <script type="text/javascript">
 	var L = ["a", "b", "c","d"]; // TODO Create method of storing usernames from username database in list
-GetFriendList("Friends",L);          
+GetFriendList("Friends",L);
 </script>
 
 
@@ -145,7 +141,7 @@ GetFriendList("Friends",L);
 
 
 <div id="pending">
-<!-- PENDING TAB right side, under friends--> 
+<!-- PENDING TAB right side, under friends-->
 <div id="pending-title">Requests</div>
 <div id="pending-content">
 <ul id="Pending"></ul>
@@ -155,7 +151,7 @@ GetFriendList("Friends",L);
 <!-- TODO set data equal to an array of friends from friends db -->
 <script type="text/javascript">
  var L = ["a", "b", "c","d"];
-GetPendingList("Pending",L);          
+GetPendingList("Pending",L);
 </script>
 
 
@@ -178,7 +174,7 @@ GetPendingList("Pending",L);
 <input type="hidden" name="user_a" value="<? echo $_SESSION['user'];?>">
 <input type="hidden" name="user_b" value=""> <!-- get user 2 somehow -->
 <input type="hidden" name="action" value="add">
-	
+
 </form>
 ]
 
