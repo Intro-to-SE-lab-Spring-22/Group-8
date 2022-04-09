@@ -170,3 +170,10 @@ function ViewUserPost(Username){
 
 
 */
+
+function AddFriend(form) {
+
+form = document.getElementById("Friend-form");
+form.submit();
+	 
+} 
