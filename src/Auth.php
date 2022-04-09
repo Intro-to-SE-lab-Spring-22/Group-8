@@ -3,6 +3,31 @@ namespace Group8\Spyke;
 
 class Auth extends \Group8\Spyke\Database
 {
+	public static function startSession() {
+		session_start();
+		// Set the User cookie if logged-in
+		!isset($_SESSION["user"]) or setcookie("user", $_SESSION["user"]);
+	}
+
+	public static function login(int $userID) {
+		// Set the user ID in the session
+		$_SESSION["user"] = $userID;
+	}
+
+	public static function logout() {
+		// Destroy the session
+		unset($_SESSION["user"]);
+		session_destroy();
+	}
+
+	public static function isLoggedIn() {
+		return (isset($_SESSION["user"]) && $_SESSION["user"] > 0);
+	}
+
+	public static function user() {
+		return $_SESSION["user"] ?? 0;
+	}
+
 	public function verifyPassword(int $id, string $password)
 	{
 		$stmt = $this->prepare("SELECT pass FROM users WHERE id = :id");
@@ -14,11 +39,5 @@ class Auth extends \Group8\Spyke\Database
 			return password_verify($password, $hash);
 		}
 		return false;
-	}
-
-	public function whoAmI()
-	// Get the user's ID from the session.
-	{
-		return isset($_SESSION["user"]) ? $_SESSION["user"] : false;
 	}
 }
