@@ -11,16 +11,14 @@ $UserDB = new Group8\Spyke\Database\User();
 $Logger = new Group8\Spyke\Log();
 
 $content = $_POST["content"]; //?	The body of the post
-$user = $_SESSION["user"] ?? 0; //?	The user responsible
-$username = $UserDB->getUsername($user) ?? "Anonymous";
+$username = $UserDB->getUsername(Auth::user()) ?? "Anonymous";
 
 //
 
-if (true) {
-	//! Replace 'if true' with a username/auth check
-    $postSuccess = $PostDB->createPost($user, $content);
+if (Auth::isLoggedIn()) {
+    $postSuccess = $PostDB->createPost(Auth::user(), $content);
     if ($postSuccess) {
-        $Logger->changeUser($username, $user);
+        $Logger->changeUser($username, Auth::user());
         $Logger->add("Post #{$postSuccess} created!", false, $username, 201);
 		http_response_code(204);
         header("Location: ../UserPage.php"); //!	Redirect to the main page?
