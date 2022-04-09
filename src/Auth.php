@@ -22,6 +22,10 @@ class Auth extends \Group8\Spyke\Database
 		session_destroy();
 	}
 
+	public static function isLoggedIn() {
+		return (isset($_SESSION["user"]) && $_SESSION["user"] > 0);
+	}
+
 	public function verifyPassword(int $id, string $password)
 	{
 		$stmt = $this->prepare("SELECT pass FROM users WHERE id = :id");

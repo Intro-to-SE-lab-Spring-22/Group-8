@@ -14,5 +14,8 @@ Sets the session.
 ### logout [static]
 Destroys the session.
 
+### isLoggedIn [static]
+Returns true if the user is logged in.
+
 ### verifyPassword($id, $password)
 Verifies a user-password combo.
