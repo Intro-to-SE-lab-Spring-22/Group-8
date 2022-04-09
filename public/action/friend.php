@@ -27,3 +27,4 @@ switch ($action) {
 		$FriendDB->blockFriend(Auth::user(), $user);
 		break;
 }
+http_response_code(204);
