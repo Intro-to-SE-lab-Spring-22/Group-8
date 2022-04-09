@@ -1,7 +1,10 @@
 <?php
 require __DIR__ . '/../../vendor/autoload.php';
+use Group8\Spyke\Auth;
+Auth::startSession();
 
-# Spyke User Actions
+//! Spyke User Actions
+//! Create Posts
 
 $PostDB = new Group8\Spyke\Database\Post();
 $UserDB = new Group8\Spyke\Database\User();

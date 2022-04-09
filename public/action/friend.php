@@ -1,9 +1,10 @@
 <?php
-session_start();
-
 require __DIR__ . '/../../vendor/autoload.php';
+use Group8\Spyke\Auth;
+Auth::startSession();
 
-# Spyke User Actions
+//! Spyke User Actions
+//! Add Friends
 
 $FriendDB = new Group8\Spyke\FriendHandler();
 $UserDB = new Group8\Spyke\Database\User();

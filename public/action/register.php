@@ -3,8 +3,11 @@
 
 <?php
 require __DIR__ . '/../../vendor/autoload.php';
+use Group8\Spyke\Auth;
+Auth::startSession();
 
-# Spyke User Actions
+//! Spyke User Actions
+//! Register Account
 
 $UserDB = new Group8\Spyke\Database\User();
 $Logger = new Group8\Spyke\Log();
@@ -13,7 +16,7 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 $confirmPass = $_POST["confirm"];
 $firstName = $_POST["firstname"];
-$lastName =$_POST['lastname'];
+$lastName = $_POST['lastname'];
 
 
 
@@ -30,7 +33,8 @@ if ($check[0] && $check[1]) {
         $Logger->changeUser($newId, $username);
         $Logger->add("New account created!", false, "User", 201);
 		http_response_code(204);
-        header("Location: ../Login.php");
+		Auth::login($newId);
+        header("Location: ../UserPage.php");
     } else {
         // The requirements were valid, but there was a database error.
         $Logger->add("Account creation failure", true, "User", 500);
