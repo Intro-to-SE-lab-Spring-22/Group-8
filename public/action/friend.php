@@ -6,22 +6,24 @@ Auth::startSession();
 //! Spyke User Actions
 //! Add Friends
 
+Auth::isLoggedIn() or die("You must be logged in to do that.");
+
 $FriendDB = new Group8\Spyke\FriendHandler();
 $UserDB = new Group8\Spyke\Database\User();
 $Logger = new Group8\Spyke\Log();
 
-$user_a = $_POST["user"];
-$user_b = $_SESSION["user"]; //?	The user responsible
+
+$user = $_POST["user"];
 $action = $_POST["action"];
 
 switch ($action) {
 	case "add":
-		$FriendDB->addFriend($user_a, $user_b);
+		$FriendDB->addFriend(Auth::user(), $user);
 		break;
 	case "remove":
-		$FriendDB->removeFriend($user_a, $user_b);
+		$FriendDB->removeFriend(Auth::user(), $user);
 		break;
 	case "block":
-		$FriendDB->blockFriend($user_a, $user_b);
+		$FriendDB->blockFriend(Auth::user(), $user);
 		break;
 }
