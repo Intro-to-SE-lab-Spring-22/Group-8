@@ -20,7 +20,7 @@ if (true) {
         $Logger->changeUser($username, $user);
         $Logger->add("Post #{$postSuccess} created!", false, $username, 201);
 		http_response_code(204);
-        header("Location: ../index.php"); //!	Redirect to the main page?
+        header("Location: ../UserPage.php"); //!	Redirect to the main page?
     } else {
         // The requirements were valid, but there was a database error.
         $Logger->add("Post creation failure", true, "User", 500);
