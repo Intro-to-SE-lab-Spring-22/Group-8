@@ -18,7 +18,7 @@ $username = $UserDB->getUsername(Auth::user()) ?? "Anonymous";
 if (Auth::isLoggedIn()) {
     $postSuccess = $PostDB->createPost(Auth::user(), $content);
     if ($postSuccess) {
-        $Logger->changeUser($username, Auth::user());
+        $Logger->changeUser(Auth::user(), $username);
         $Logger->add("Post #{$postSuccess} created!", false, $username, 201);
 		http_response_code(204);
         header("Location: ../UserPage.php"); //!	Redirect to the main page?
