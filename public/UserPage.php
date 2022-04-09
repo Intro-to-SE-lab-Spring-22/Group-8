@@ -4,7 +4,8 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 $Auth = new \Group8\Spyke\Auth;
-
+session_start;
+ $_SESSION["user"]
 
 ?>
 
@@ -172,7 +173,12 @@ GetPendingList("Pending",L);
 
 </aside>
 
-
+<form id="Friend-form" action="action/friends.php" method="Post">
+<input type="hidden" name="user_a" value="<? echo $_SESSION['user'];?>">
+<input type="hidden" name="user_b" value=""> <!-- get user 2 somehow -->
+<input type="hidden" name="action" value="add">
+	
+</form>
 
 </body>
 </html>
