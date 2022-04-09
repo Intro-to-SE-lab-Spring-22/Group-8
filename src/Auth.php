@@ -24,6 +24,10 @@ class Auth extends \Group8\Spyke\Database
 		return (isset($_SESSION["user"]) && $_SESSION["user"] > 0);
 	}
 
+	public static function user() {
+		return $_SESSION["user"] ?? 0;
+	}
+
 	public function verifyPassword(int $id, string $password)
 	{
 		$stmt = $this->prepare("SELECT pass FROM users WHERE id = :id");

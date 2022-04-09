@@ -17,5 +17,8 @@ Destroys the session.
 ### isLoggedIn [static]
 Returns true if the user is logged in.
 
+### auth [static]
+Returns the current user's ID.
+
 ### verifyPassword($id, $password)
 Verifies a user-password combo.
