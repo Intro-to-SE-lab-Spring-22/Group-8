@@ -21,7 +21,7 @@ class FriendHandler extends \Group8\Spyke\Database\Friend
 		switch ($relationship) {
 			case $roles[1] . "_asks":
 				// User A has been asked! Accept!
-				$this->setRelationship
+				$this->setRelationship($userA, $userB, "friends");
 			case "friends":
 			case $roles[0] . "_asks":
 				return true;
