@@ -1,26 +1,31 @@
+
 <?php
 # Spyke Main Index
 require __DIR__ . '/../vendor/autoload.php';
-use \Group8\Spyke\Auth;
-Auth::startSession();
+
+$Auth = new \Group8\Spyke\Auth;
+ session_start();
+ echo $_SESSION["User"]; 
 
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="assets/css/UserPage.css">
-	<script src="assets/js/UserPage.js" defer></script>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="assets/css/UserPage.css">
 
+</head>
 <body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script src="assets/js/UserPage.js"></script>
+
 <header>
 <!-- SETTINGS MODAL -->
-<h2> settings button</h2>
-<button id="Settings-myBtn"><img src="assets/img/Settings_Button.jpg"></button>
+
+<button id="Settings-myBtn"><img src="assets/img/icon-ios7-gear-512.webp"></button>
 
 <!-- The Modal -->
 <div id="Settings-myModal" class="Settings-modal">
@@ -32,7 +37,7 @@ Auth::startSession();
 		<p></p>
 		<button id="vlp">View Most Liked Posts</button>					<!-- TODO -->
 		<p></p>
-		<button>Logout</button>
+		<button onclick="Logout()">Logout</button>
 	</div>
 
 </div>
@@ -63,11 +68,12 @@ svlp.onclick = function() {
 
 </script>
 
+
 </header>
 
-<main id="1234">
+<main id="mainBody">
 
-<div class="AddPost">
+<div class="AddPost"> 
 <!-- POSTS TAB -  Middle of screen-->
 <h2>Post</h2>
 <button id="Post-myBtn">Create post</button>
@@ -78,11 +84,11 @@ svlp.onclick = function() {
 	<!-- Modal content -->
 	<div class="Post-modal-content">
 		<span class="Post-modal-close">&times;</span>
-
+			
 		<form action="action/post.php" method="post">                                              <!-- TODO -->
 		<input type="text" name="content" value="What's on your mind?"><br>
 		<input  type="submit" value="Post">
-		</form>
+		</form> 
 	</div>
 
 </div>
@@ -106,7 +112,7 @@ window.onclick = function(event) {
 
 
 <script type="text/javascript">
-//    ID , Author, Content, Hidden?, Timestamp, Likes, Dislikes.
+//    ID , Author, Content, Hidden?, Timestamp, Likes, Dislikes. 
 
 var Post1 = [19, 2,"Alphabet soup is great! " , false, 0 , 5 , 1 ];
 var Post2 = [24, 3,"Alphabet soup is meh! " , false, 1 , 3 , 3 ];
@@ -128,10 +134,7 @@ ShowPost(Post3);
 <ul id="Friends"></ul>
 
 
-<script type="text/javascript">
-	var L = ["a", "b", "c","d"]; // TODO Create method of storing usernames from username database in list
-GetFriendList("Friends",L);
-</script>
+
 
 
 </div>
@@ -141,7 +144,7 @@ GetFriendList("Friends",L);
 
 
 <div id="pending">
-<!-- PENDING TAB right side, under friends-->
+<!-- PENDING TAB right side, under friends--> 
 <div id="pending-title">Requests</div>
 <div id="pending-content">
 <ul id="Pending"></ul>
@@ -149,10 +152,7 @@ GetFriendList("Friends",L);
 
 
 <!-- TODO set data equal to an array of friends from friends db -->
-<script type="text/javascript">
- var L = ["a", "b", "c","d"];
-GetPendingList("Pending",L);
-</script>
+
 
 
 
@@ -171,81 +171,11 @@ GetPendingList("Pending",L);
 </aside>
 
 <form id="Friend-form" action="action/friends.php" method="Post">
-<input type="hidden" name="user_a" value="<? echo $_SESSION['user'];?>">
-<input type="hidden" name="user_b" value=""> <!-- get user 2 somehow -->
+<input type="hidden" name="user_b">
+<input type="hidden" name="user_a">
 <input type="hidden" name="action" value="add">
-
+	
 </form>
-]
 
-<body>
-	<header>
-		<!-- SETTINGS MODAL -->
-		<h2> settings button</h2>
-		<button id="Settings-myBtn"><img src="assets/img/Settings_Button.jpg"></button>
-		<!-- The Modal -->
-		<div id="Settings-myModal" class="Settings-modal">
-			<!-- Modal content -->
-			<div class="Settings-modal-content">
-				<span class="Settings-modal-close">&times;</span>
-				<button onclick="">View Newest Posts</button> <!-- TODO -->
-				<p></p>
-				<button>View Most Liked Posts</button> <!-- TODO -->
-				<p></p>
-				<button>Logout</button>
-			</div>
-		</div>
-	</header>
-
-	<main>
-		<div class="AddPost">
-			<!-- POSTS TAB -  Middle of screen-->
-			<h2>Post</h2>
-			<button id="Post-myBtn">Create post</button>
-			<!-- The Modal -->
-			<div id="Post-myModal" class="Post-modal">
-				<!-- Modal content -->
-				<div class="Post-modal-content">
-					<span class="Post-modal-close">&times;</span>
-					<form action="/action_page.php">
-						<!-- TODO -->
-						<input type="text" id="Pdata" name="Pdata" value="What's on your mind?"><br>
-						<input type="submit" value="Post">
-					</form>
-				</div>
-			</div>
-		</div>
-
-	</main>
-
-	<aside>
-		<div id="friends">
-			<!-- FRIENDS TAB  right side under header-->
-
-			<div id="friends-title">Friends</div>
-			<div id="friends-content">
-				<ul id="Friends"></ul>
-			</div>
-
-		</div>
-
-		<div id="pending">
-			<!-- PENDING TAB right side, under friends-->
-			<div id="pending-title">Requests</div>
-			<div id="pending-content">
-				<ul id="Pending"></ul>
-
-			</div>
-		</div>
-		<div id="UserModal" class="UserModal">
-			<div id="UserModalContent" class="UserModalContent">
-				<p id="UserModalText"></p>
-				<button id="CloseButton">Close</button>
-				<button id="ViewPosts">View User Posts</button>
-				<button id="Add/Remove"></button>
-			</div>
-		</div>
-	</aside>
 </body>
-
 </html>

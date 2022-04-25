@@ -1,6 +1,41 @@
 
+// JQUERY AND AJAX IMPLEMENTATION
+
+$(document).ready(function(){  // Debugging only:  init jquery
+    //alert("jQuery Works")  
+	
+});
+
+function UpdateFriends(){
+	/* TODO 
+	   AJAX get method to retrieve users from action/Friend.php. 
+	*/
+	$.get("action/friend.php",{action: "getMyFriends"}, function(data){
+	 var result = $.parseJSON(JSON.stringify(data));
+	 console.log(result);
+	 
+	});
+	
+	/*
+	   .done() store the json results and console.log results
+	*/ 
+}
+
+function AddFriend(User_B){
+	console.log("AddFriend_run");
+	$.post("action/friend.php", {friend: User_B, action: "add"});
+	
+	
+}
 
 
+
+// TODO: Implement document.ready function that grabs username from friend table
+//TODO  Implement document.ready function that grabs username from pending table
+//TODO Implement document.ready function that grabs posts from post database
+//TODO Implement get function that retrieves 
+
+// JAVASCRIPT FUNCTIONS
 
 function GetFriendList(ULName, FriendList){
 	let friendData = FriendList;
@@ -11,7 +46,7 @@ function GetFriendList(ULName, FriendList){
 			btn.onclick = function(event){
 				CreateFriendModal(btn);
 			}
-		btn.innerText = item;
+		btn.innerText = item; 
 		li.appendChild(btn);
 		list.appendChild(li);
 
@@ -102,13 +137,13 @@ function ShowPost(postArr){
 	let content = document.createElement("p");
 	content.innerText = postArr[2];
 	let likeButton = document.createElement("button");
-	likeButton.innerText = "Likes: ";
+	likeButton.innerText = "Like";
 	let likes = document.createElement("p");
 	likes.innerText = postArr[5];
 	let time = document.createElement("p");
 	time.innerText = "Timestamp: "+ postArr[4];
 	let dislikeButton = document.createElement("button");
-	dislikeButton.innerText = "Dislikes: ";
+	dislikeButton.innerText = "Dislike";
 	let dislikes = document.createElement("p");
 	dislikes.innerText = postArr[6];
 
@@ -119,7 +154,7 @@ function ShowPost(postArr){
 	post.appendChild(likes);
 	post.appendChild(dislikeButton);
 	post.appendChild(dislikes);
-	let mainscreen = document.getElementById("1234");
+	let mainscreen = document.getElementById("mainBody");
 	mainscreen.appendChild(post);
 	post.style.display = "block";
 	console.log("ShowPost Run");
@@ -170,10 +205,3 @@ function ViewUserPost(Username){
 
 
 */
-
-function AddFriend(form) {
-
-form = document.getElementById("Friend-form");
-form.submit();
-	 
-} 
