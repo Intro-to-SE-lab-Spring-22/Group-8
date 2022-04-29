@@ -27,6 +27,10 @@ CREATE TABLE `users` (
 	`username` TEXT(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 	`firstName` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	`lastName` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+	`gender` TINYINT(1),
+	`location` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+	`about` VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+	`image` MEDIUMBLOB,
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`pass` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 	PRIMARY KEY (`id`)
