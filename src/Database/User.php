@@ -29,6 +29,35 @@ class User extends \Group8\Spyke\Database
 		}
 	}
 
+	public function setGender(int $id, int $gender) {
+		// Sets a user's gender
+		$data = [
+			"id"		=> $id,
+			"gender"	=> $gender
+		];
+		$sql = "UPDATE users SET gender = :gender WHERE id = :id";
+		return $this->prepare($sql)->execute($data);
+	}
+
+	public function setImage(int $id, GdImage $image) {
+		// Converts the GdImage to a WebP image and stores it in the database.
+		$data = [
+			"id"		=> $id,
+			"image"		=> imagewebp($image, null, 90)
+		];
+		$sql = "UPDATE users SET image = :image WHERE id = :id";
+		return $this->prepare($sql)->execute($data);
+	}
+
+	public function setBio(int $id, string $bio) {
+		$data = [
+			"id"		=> $id,
+			"bio"		=> $bio
+		];
+		$sql = "UPDATE users SET bio = :bio WHERE id = :id";
+		return $this->prepare($sql)->execute($data);
+	}
+
 	// Getters
 	public function getUserList()
 	{
@@ -84,6 +113,26 @@ class User extends \Group8\Spyke\Database
 		$obj->execute([$id]);
 		$user = $obj->fetch(\PDO::FETCH_ASSOC);
 		return $user ? reset($user) : false;
+	}
+
+	public function getImage(string $id)
+	{
+		// Get a user's image from an ID to a GdImage resource
+		$sql = "SELECT image FROM users WHERE id = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$id]);
+		$image = $obj->fetch(\PDO::FETCH_ASSOC);
+		return $image ? reset($image) : false;
+	}
+
+	public function getBio(string $id)
+	{
+		// Get a user's bio from an ID
+		$sql = "SELECT bio FROM users WHERE id = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$id]);
+		$bio = $obj->fetch(\PDO::FETCH_ASSOC);
+		return $bio ? reset($bio) : false;
 	}
 
 	// Destroyers
