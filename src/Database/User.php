@@ -54,7 +54,7 @@ class User extends \Group8\Spyke\Database
 			"id"		=> $id,
 			"bio"		=> $bio
 		];
-		$sql = "UPDATE users SET bio = :bio WHERE id = :id";
+		$sql = "UPDATE users SET about = :bio WHERE id = :id";
 		return $this->prepare($sql)->execute($data);
 	}
 
@@ -128,7 +128,7 @@ class User extends \Group8\Spyke\Database
 	public function getBio(string $id)
 	{
 		// Get a user's bio from an ID
-		$sql = "SELECT bio FROM users WHERE id = ?";
+		$sql = "SELECT about FROM users WHERE id = ?";
 		$obj = $this->prepare($sql);
 		$obj->execute([$id]);
 		$bio = $obj->fetch(\PDO::FETCH_ASSOC);
