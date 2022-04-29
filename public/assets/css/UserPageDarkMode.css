@@ -1,4 +1,4 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Arial, Helvetica, sans-serif;  background: #212429;}
 
 
 img.profile{
@@ -9,7 +9,6 @@ img.profile{
   width: 10vh;
   height:10vh;
 }
-
 /* The Modal (background) */
 .Settings-modal {
   display: none; /* Hidden by default */
@@ -27,7 +26,7 @@ img.profile{
 
 /* Modal Content */
 .Settings-modal-content {
-  background-color: #fefefe;
+  background-color: #2d3138;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -65,9 +64,9 @@ img.profile{
   background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
 }
 
-/* Modal img */
+/* Modal Content */
 .Post-modal-content {
-  background-color: #fefefe;
+  background-color: #2d3138;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -117,72 +116,73 @@ img.profile{
 
 /*added by ryan below*/
 body {
-  text-align: center;
-  background: lightgray;
+	text-align: center;
+	background: #212429;
 }
 header {
-  background: linear-gradient(to bottom right, blue, red);/*SPYKE text color*/
-  color: white; 
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 10vh;
-  font-size: 8vh;
-  border-bottom: 2px solid black;
+	background: linear-gradient(to bottom right, blue, red);/*SPYKE text color*/
+	color: white; 
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 10vh;
+	font-size: 8vh;
+	border-bottom: 2px solid black;
 }
 a.home-page {
   text-decoration: none;
   color: white;
 }
 main {
-  background: lightgrey;
-  width: calc(100vw - 215px);
-  margin-top: 12vh;
-  margin-left: 0px;
-  margin-bottom: 0px;
-  margin-right: 20vw;
-  padding: 0px;
-  border: 0px;
+	background: #212429;
+	width: calc(100vw - 215px);
+	margin-top: 12vh;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 20vw;
+	padding: 0px;
+	border: 0px;
+	color:white;
 }
 article {
-  background: white;
-  border: 2px solid black;
-  margin: auto;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 2px;
-  margin-bottom:2px;
+	background: #2d3138;
+	border: 2px solid black;
+	margin: auto;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 2px;
+	margin-bottom:2px;
 }
 aside {
-  background: lightgrey;
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  width: 180px;
-  height: 90vh;
-  border-left: 2px solid black;
+	background: #212429;
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	width: 180px;
+	height: 90vh;
+	border-left: 2px solid black;
 }
 #friends-title {
-  background: linear-gradient(to bottom right, blue, red);/*SPYKE text color*/
-  color: white;
+	background: linear-gradient(to bottom right, blue, red);/*SPYKE text color*/
+	color: white;
 }
 #friends-content {
-  text-align: left;
+	text-align: left;
 }
 #pending-title {
-  background: linear-gradient(to bottom right, blue, red);/*SPYKE text color*/
-  color: white;
+	background: linear-gradient(to bottom right, blue, red);/*SPYKE text color*/
+	color: white;
 }
 #pending-content {
-  text-align: left;
+	text-align: left;
 }
 ul{
-  padding: 0px;
-  list-style-type:none;
+	padding: 0px;
+	list-style-type:none;
 }
 li{
-  margin-bottom: 7px;
+	margin-bottom: 7px;
 }
 
 aside button {
@@ -208,16 +208,16 @@ button:hover{
 }
 
 img.settings{
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
   top:0;
   padding: 0;
 }
 
-
 #Settings-myBtn{
   float: left;
   background-color: transparent;
-  height: 10vh;
-  width: 10vh;
+	height: 10vh;
+	width: 10vh;
+	border: transparent;
 }
