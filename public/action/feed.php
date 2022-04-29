@@ -7,7 +7,7 @@ Use Group8\Spyke\Database\Post;
 
 $PostDB = new Post();
 
-$page = ($_GET['page'] ?? 1) - 1;
+$page = min(($_GET['page'] ?? 1) - 1, 0);
 
 $feed = $PostDB->getFeed("id", $page);
 
