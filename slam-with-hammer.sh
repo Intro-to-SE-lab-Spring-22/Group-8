@@ -4,6 +4,7 @@ echo "[] This will clear the Git stash, and is not for development environments.
 
 Slam () {
     echo "[] *bang* *bang* bang*"
+	git config --global --add safe.directory /var/www/spyke
     git stash push --include-untracked &> /dev/null
     echo "[] Alright, see if it works now."
 }
