@@ -29,7 +29,7 @@ $Auth = new \Group8\Spyke\Auth;
 		</div>
 		<ul class="nav-area">
 			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
+			<li><a href="About.php">About</a></li>
 			<li><a href="Login.php">Login</a></li>
 			<li><a href="Register.php">Register</a></li>
 
