@@ -49,12 +49,44 @@ class User extends \Group8\Spyke\Database
 		return $this->prepare($sql)->execute($data);
 	}
 
-	public function setBio(int $id, string $bio) {
+	public function setBio(int $id, string $about) {
 		$data = [
 			"id"		=> $id,
-			"bio"		=> $bio
+			"about"		=> $about
 		];
-		$sql = "UPDATE users SET about = :bio WHERE id = :id";
+		$sql = "UPDATE users SET about = :about WHERE id = :id";
+		return $this->prepare($sql)->execute($data);
+	}
+	public function setFirstName(int $id, string $firstName) {
+		$data = [
+			"id"		=> $id,
+			"firstName"		=> $firstName
+		];
+		$sql = "UPDATE users SET about = :firstName WHERE id = :id";
+		return $this->prepare($sql)->execute($data);
+	}
+	public function setFastName(int $id, string $lastName) {
+		$data = [
+			"id"		=> $id,
+			"lastName"		=> $lastName
+		];
+		$sql = "UPDATE users SET about = :lastName WHERE id = :id";
+		return $this->prepare($sql)->execute($data);
+	}
+	public function setLocation(int $id, string $location) {
+		$data = [
+			"id"		=> $id,
+			"location"		=> $location
+		];
+		$sql = "UPDATE users SET about = :location WHERE id = :id";
+		return $this->prepare($sql)->execute($data);
+	}
+	public function setGender(int $id, string $gender) {
+		$data = [
+			"id"		=> $id,
+			"gender"		=> $gender
+		];
+		$sql = "UPDATE users SET about = :gender WHERE id = :id";
 		return $this->prepare($sql)->execute($data);
 	}
 
@@ -134,6 +166,51 @@ class User extends \Group8\Spyke\Database
 		$bio = $obj->fetch(\PDO::FETCH_ASSOC);
 		return $bio ? reset($bio) : false;
 	}
+	public function getFirstName(string $id)
+	{
+		// Get a user's bio from an ID
+		$sql = "SELECT firstName FROM users WHERE id = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$id]);
+		$bio = $obj->fetch(\PDO::FETCH_ASSOC);
+		return $bio ? reset($bio) : false;
+	}
+	public function getLastName(string $id)
+	{
+		// Get a user's bio from an ID
+		$sql = "SELECT lastName FROM users WHERE id = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$id]);
+		$bio = $obj->fetch(\PDO::FETCH_ASSOC);
+		return $bio ? reset($bio) : false;
+	}
+		public function getLocation(string $id)
+	{
+		// Get a user's bio from an ID
+		$sql = "SELECT location FROM users WHERE id = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$id]);
+		$bio = $obj->fetch(\PDO::FETCH_ASSOC);
+		return $bio ? reset($bio) : false;
+	}
+		public function getGender(string $id)
+	{
+		// Get a user's bio from an ID
+		$sql = "SELECT gender FROM users WHERE id = ?";
+		$obj = $this->prepare($sql);
+		$obj->execute([$id]);
+		$bio = $obj->fetch(\PDO::FETCH_ASSOC);
+		return $bio ? reset($bio) : false;
+	}
+
+
+
+
+
+
+
+
+
 
 	// Destroyers
 	public function deleteUser(int $id)
