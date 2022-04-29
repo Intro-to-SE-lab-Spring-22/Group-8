@@ -29,6 +29,16 @@ class User extends \Group8\Spyke\Database
 		}
 	}
 
+	public function setGender(int $id, int $gender) {
+		// Sets a user's gender
+		$data = [
+			"id"		=> $id,
+			"gender"	=> $gender
+		];
+		$sql = "UPDATE users SET gender = :gender WHERE id = :id";
+		return $this->prepare($sql)->execute($data);
+	}
+
 	public function setImage(int $id, GdImage $image) {
 		// Converts the GdImage to a WebP image and stores it in the database.
 		$data = [
