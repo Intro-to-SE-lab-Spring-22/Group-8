@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 $UserDB = new Group8\Spyke\Database\User();
 
-$id = $_POST['id'] ?? 0;
+$id = $_SESSION["user"] ?? die("No user ID provided.");
 $bio = $_POST['bio'] ?? "";
 $first = $_POST['firstname'];
 $last = $_POST['lastname'];
@@ -19,9 +19,8 @@ if (strlen($bio) > 255) {
 } else {
 	// Set the bio.
 	$UserDB->setBio($id, $bio);
+	$UserDB->setFirstName($id, $first);
+	$UserDB->setLastName($id, $last);
+	$UserDB->setGender($id, $gender);
+	$UserDB->setLocation($id, $location);
 }
-
-$UserDB->setFirstName($id, $first);
-$UserDB->setLastName($id, $last);
-$UserDB->setGender($id, $gender);
-$UserDB->setLocation($id, $location);
