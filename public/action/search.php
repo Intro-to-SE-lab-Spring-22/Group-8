@@ -12,5 +12,6 @@ $user = ($_POST['user'] > -1) ? floor($_POST['user']) : die("Invalid user ID");
 
 $feed = $PostDB->getFeed("id", $page, true, $user);
 
+http_response_code(204);
 header('Content-Type: application/json');
 echo json_encode($feed);
