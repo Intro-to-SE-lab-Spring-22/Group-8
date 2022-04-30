@@ -119,7 +119,7 @@ $id = $_SESSION['User'];
 			<p>Bio</p>
 			<textarea name="bio" rows="6" cols="52">CurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBio</textarea><!--update BioBio with current bio-->
 			<p>Gender</p>
-			<select name="gender">
+			<select name="gender" id="gender">
                 <!--to display current gender add selected attribute to one of the options below. example if person currently is "other":
                     <option value="other" selected>Other</option>
                 example if person currently is "pnts":
