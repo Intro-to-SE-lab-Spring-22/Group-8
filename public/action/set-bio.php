@@ -23,5 +23,5 @@ if (strlen($bio) > 255) {
 
 $UserDB->setFirstName($id, $first);
 $UserDB->setLastName($id, $last);
-$UserDB->setGender$id, $gender);
+$UserDB->setGender($id, $gender);
 $UserDB->setLocation($id, $location);
