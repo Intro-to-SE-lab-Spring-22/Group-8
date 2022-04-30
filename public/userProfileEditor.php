@@ -13,6 +13,22 @@ $_SESSION['User'];
     <link rel="stylesheet" href="assets/css/loginreg_style.css">
     <title>User Profile Page</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.post("action/get-bio.php", function(data){
+                window.resultArr = [];
+                for (var i = 0; i < data.length; i++){
+                    var obj = data[i];
+                    resultArr.push(obj);
+
+
+        }
+        
+            });
+
+        });
+
+    </script>
    <script>
             var loadFile = function(event){
                 imageHolder = document.getElementById("output");
@@ -98,11 +114,23 @@ $_SESSION['User'];
                 example if person currently is "pnts":
                     <option value="pnts" selected>Prefer Not To Say</option>
                     -->
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-                <option value="pnts">Prefer Not To Say</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+                <option value="2">Other</option>
+                <option value="3">Prefer Not To Say</option>
             </select>
+            <script>
+                    var temp = resultArr[2];
+                    var mySelect = document.getElementById('mySelect');
+
+                    for(var i, j = 0; i = mySelect.options[j]; j++) {
+                        if(i.value == temp) {
+                            mySelect.selectedIndex = j;
+                            break;
+    }
+}
+</script>
+
             <hr>
             <button type="submit">Update Profile</button>
 		</form>
