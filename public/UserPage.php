@@ -44,8 +44,8 @@ $Auth = new \Group8\Spyke\Auth;
 	<div class="Settings-modal-content">
 		<span class="Settings-modal-close">&times;</span>
 		<form action="action/search.php" method="post">
-		<input type="text">User number</input>
-		<button type="submit">search</button>	
+		<input type="text"name="user" >User number</input>
+		<button type="submit">search post by user ID</button>	
 		</form>		<!-- TODO -->
 		<p></p>
 		<button id="vlp">View Most Liked Posts</button>					<!-- TODO -->
