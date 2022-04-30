@@ -30,7 +30,7 @@ function AddFriend(User_B){
 }
 
 function RefreshPosts(){
-$.post("action/getAllPost.php", function(data){
+$.post("action/feed.php", function(data){
 		var resultArr = [];
 		for (var i = 0; i < data.length; i++){
 			var obj = data[i];
