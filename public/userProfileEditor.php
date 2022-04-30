@@ -24,10 +24,10 @@ $id = $_SESSION['User'];
 
                 }
                 console.log(resultArr);
-                    $("#fn").placeholder=resultArr[0];
-                    $("#ln").placeholder=resultArr[1];
-                    $("#loc").placeholder=resultArr[3];
-                    $("#bio").placeholder=resultArr[4];
+                    $("#fn").attr("placeholder", resultArr[0]);
+                    $("#ln").attr("placeholder", resultArr[1]);
+                    $("#loc").attr("placeholder", resultArr[3]);
+                    $("#bio").attr("placeholder", resultArr[4]);
                     
 
 
