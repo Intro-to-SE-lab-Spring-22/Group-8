@@ -43,7 +43,10 @@ $Auth = new \Group8\Spyke\Auth;
 	<!-- Modal content -->
 	<div class="Settings-modal-content">
 		<span class="Settings-modal-close">&times;</span>
-		<button id="vnp">View Newest Posts</button>			<!-- TODO -->
+		<form action="action/search.php" method="post">
+		<input type="text"name="user" >User number</input>
+		<button type="submit">search post by user ID</button>	
+		</form>		<!-- TODO -->
 		<p></p>
 		<button id="vlp">View Most Liked Posts</button>					<!-- TODO -->
 		<p></p>
@@ -57,8 +60,7 @@ $Auth = new \Group8\Spyke\Auth;
 <script type= "text/javascript">
 var smodal = document.getElementById("Settings-myModal");
 var sbtn = document.getElementById("Settings-myBtn");
-var svnp = document.getElementById("vnp");
-var svlp = document.getElementById("vlp");
+
 var sspan = document.getElementsByClassName("Settings-modal-close")[0];
 sbtn.onclick = function() { OpenModal(smodal); }
 sspan.onclick = function() {
@@ -70,12 +72,6 @@ window.onclick = function(event) {
 	if (event.target == smodal) {
 		CloseModal(smodal);
 	}
-}
-svnp.onclick = function(){
-	ViewNewestPost();
-}
-svlp.onclick = function() {
-	ViewPopularPost();
 }
 
 </script>

@@ -15,13 +15,11 @@ $image = $_FILES["image"] or die("No image provided."); //?	The body of the post
 
 // Check if the file is an image
 if (getimagesize($image["tmp_name"]) === false) {
-	$Logger->log("Uploaded file is not an image.");
 	die("Uploaded file is not an image.");
 }
 
 // Check if file is fewer than 16MB
 if ($image["size"] > 16777216) {
-	$Logger->log("Uploaded file is too large.");
 	die("Uploaded file is too large.");
 }
 
@@ -33,13 +31,10 @@ if (Auth::isLoggedIn()) {
 	$uploadResult = $UserDB->setImage(Auth::user(), $gd);
     if ($uploadResult) {
 		http_response_code(204);
-        header("Location: ../UserPage.php"); //!	Redirect to the main page?
     } else {
         // The requirements were valid, but there was a database error.
-        $Logger->add("Image upload failure", true, "User", 500);
 		http_response_code(500);
-        echo '<script>alert("There was a server side error, please try again later."), window.location.replace("https://spyke.msstate.wolfgang.space/");</script>';
-
+		die("There was an error uploading the image.");
     }
 } else {
 	http_response_code(400);

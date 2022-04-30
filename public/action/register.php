@@ -1,6 +1,3 @@
-
-
-
 <?php
 require __DIR__ . '/../../vendor/autoload.php';
 use Group8\Spyke\Auth;

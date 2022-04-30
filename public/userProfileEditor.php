@@ -1,6 +1,7 @@
 <?php 
 session_start();
-$_SESSION['User'];
+$id = $_SESSION['User'];
+//echo var_dump($_SESSION);
 
 ?>
 
@@ -15,24 +16,32 @@ $_SESSION['User'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $.post("action/get-bio.php", {id:$_SESSION['User']}, function(data){
-                window.resultArr = [];
+            var resultArr = [];
+            $.post("action/get-bio.php", {"id" : <?= $_SESSION['user']?> }, function(data){
                 for (var i = 0; i < data.length; i++){
                     var obj = data[i];
                     resultArr.push(obj);
 
-
                 }
+                console.log(resultArr);
+                    $("#fn").attr("placeholder", resultArr[0]);
+                    $("#ln").attr("placeholder", resultArr[1]);
+                    $("#loc").attr("placeholder", resultArr[3]);
+                    $("#bio").attr("placeholder", resultArr[4]);
+                    
+
+
         
             });
-            var temp = window.resultArr[2];
-            var mySelect = document.getElementById('mySelect');
+            var temp = resultArr[2];
+            var mySelect = document.getElementById('gender');
 
                 for(var i, j = 0; i = mySelect.options[j]; j++) {
                     if(i.value == temp) {
                         mySelect.selectedIndex = j;
                         break;
                     }
+                    if(j >5){break;}
                 }
 
         });
@@ -42,9 +51,9 @@ $_SESSION['User'];
             var loadFile = function(event){
                 imageHolder = document.getElementById("output");
                 selectedImage = URL.createObjectURL(event.target.files[0]);
-                $.post("action/uploadImg.php", {img : selectedImage}, function(data){
+                $.post("action/set-image.php", {img : selectedImage}, function(data){
                 });
-                $.post("action/getImg.php",function(data){
+                $.post("action/get-image.php",function(data){
                 });
                 imageHolder.src = selectedImage;
                 };
@@ -107,17 +116,17 @@ $_SESSION['User'];
             <input id="file" type="file" onchange="loadFile(event)"/>
             <img  id="output" width="200" src= /><!--change src to current profile pic-->
         </div>
-		<form action="action/updateInfo.php" method="post"> <!--update action attribute-->
+		<form action="action/set-bio.php" method="post"> <!--update action attribute-->
 			<p>First Name </p>
-			<input type="text" name="firstname" placeholder="Current First Name"> <!--update placeholder attribute to reflect current state-->
+			<input type="text" id="fn" name="firstname" placeholder=""> <!--update placeholder attribute to reflect current state-->
 			<p>Last Name</p>
-			<input type="text" name="lastname" placeholder="Current Last Name">
+			<input type="text" id="ln" name="lastname" placeholder="">
             <p>Location</p>
-            <input type="text" name="location" placeholder="Current Location">
+            <input type="text" id="loc" name="location" placeholder="" >
 			<p>Bio</p>
-			<textarea name="bio" rows="6" cols="52">CurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBio</textarea><!--update BioBio with current bio-->
+			<textarea name="bio" id="bio" rows="6" cols="52"></textarea><!--update BioBio with current bio-->
 			<p>Gender</p>
-			<select name="gender">
+			<select name="gender" id="gender">
                 <!--to display current gender add selected attribute to one of the options below. example if person currently is "other":
                     <option value="other" selected>Other</option>
                 example if person currently is "pnts":
