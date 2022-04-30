@@ -158,7 +158,8 @@ function CreatePendingModal(button){
 
 function ShowPost(postArr){
 	if(!postArr[3]){
-	
+	console.log("ShowPost Run hidden");
+
 	}
 	else{
 	let actualTime = new Date(postArr[4] *1000);
