@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$_SESSION['User'];
+$id = $_SESSION['User'];
 
 ?>
 
@@ -15,7 +15,7 @@ $_SESSION['User'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $.post("action/get-bio.php", {id:$_SESSION['User']}, function(data){
+            $.post("action/get-bio.php", {"id" : <?= $_SESSION['User']?> }, function(data){
                 window.resultArr = [];
                 for (var i = 0; i < data.length; i++){
                     var obj = data[i];
