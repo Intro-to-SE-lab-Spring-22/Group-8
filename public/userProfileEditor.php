@@ -22,8 +22,15 @@ $id = $_SESSION['User'];
                     var obj = data[i];
                     resultArr.push(obj);
 
-
                 }
+                console.log(resultArr);
+                    $("#fn").placeholder=resultArr[0];
+                    $("#ln").placeholder=resultArr[1];
+                    $("#loc").placeholder=resultArr[3];
+                    $("#bio").placeholder=resultArr[4];
+                    
+
+
         
             });
             var temp = resultArr[2];
@@ -111,13 +118,13 @@ $id = $_SESSION['User'];
         </div>
 		<form action="action/set-bio.php" method="post"> <!--update action attribute-->
 			<p>First Name </p>
-			<input type="text" name="firstname" placeholder="Current First Name"> <!--update placeholder attribute to reflect current state-->
+			<input type="text" id="fn" name="firstname" placeholder=""> <!--update placeholder attribute to reflect current state-->
 			<p>Last Name</p>
-			<input type="text" name="lastname" placeholder="Current Last Name">
+			<input type="text" id="ln" name="lastname" placeholder="">
             <p>Location</p>
-            <input type="text" name="location" placeholder="Current Location">
+            <input type="text" id="loc" name="location" placeholder="" >
 			<p>Bio</p>
-			<textarea name="bio" rows="6" cols="52">CurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBioCurrentBio</textarea><!--update BioBio with current bio-->
+			<textarea name="bio" id="bio" rows="6" cols="52"></textarea><!--update BioBio with current bio-->
 			<p>Gender</p>
 			<select name="gender" id="gender">
                 <!--to display current gender add selected attribute to one of the options below. example if person currently is "other":
