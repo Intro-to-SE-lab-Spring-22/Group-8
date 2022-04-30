@@ -1,7 +1,12 @@
 <?php
 require_once __DIR__ . '/../../vendor/autoload.php';
+use Group8\Spyke\Auth;
+Auth::startSession();
 
 $UserDB = new Group8\Spyke\Database\User();
+
+Auth::isLoggedIn() or die("Not logged in.");
+
 
 $id = $_SESSION["user"] ?? die("No user ID provided.");
 $bio = $_POST['bio'] ?? "";

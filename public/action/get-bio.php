@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 $UserDB = new Group8\Spyke\Database\User();
 
-$id = $_POST['id'] ?? 0;
+$id = $_POST['id'] ?? die("No user ID provided.");
 
 header('Content-Type: application/json');
 $result =[
