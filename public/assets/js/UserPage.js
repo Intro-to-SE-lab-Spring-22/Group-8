@@ -60,24 +60,6 @@ $.post("action/feed.php", function(data){
 
 }
 
-RefreshFilteredPosts(){
-	$.post("action/search.php",{id : } function(data){
-		var resultArr = [];
-		for (var i = 0; i < data.length; i++){
-			var obj = data[i];
-			console.log(i +" : "+ obj);
-			resultArr.push(obj.id);
-			resultArr.push(obj.author);
-			resultArr.push(obj.content);
-			resultArr.push(obj.hidden);
-			resultArr.push(obj.timestamp);
-			resultArr.push(obj.likes);
-			resultArr.push(obj.dislikes);
-			console.log("ResultArr: "+resultArr);
-			ShowPost(resultArr);
-			resultArr = [];
-		}
-}
 
 
 // TODO: Implement document.ready function that grabs username from friend table
