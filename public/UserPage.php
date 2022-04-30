@@ -5,7 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $Auth = new \Group8\Spyke\Auth;
  session_start();
- echo $_SESSION["User"]; 
+ $loggedin =$_SESSION["User"]; 
 
 ?>
 
@@ -15,17 +15,27 @@ $Auth = new \Group8\Spyke\Auth;
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="assets/css/UserPage.css">
+<link id = "style" rel="stylesheet" type="text/css" href="assets/css/UserPage.css">
 
 </head>
 <body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script src="assets/js/UserPage.js"></script>
+<script>
+	$(document).ready(function log(argument) {
+		$.post("action/feed.php", function(data){
+			console.log(JSON.stringify(data));
+		});
+		// body...
+	})
+</script>
+
 
 <header>
 <!-- SETTINGS MODAL -->
-
-<button id="Settings-myBtn"><img src="assets/img/icon-ios7-gear-512.webp"></button>
+<a id="UserPageButton" href="userProfileEditor.php"><img class="profile" src="assets/img/basic-profile-picture_5.jpg" style="top: 0px;position: fixed;right: 10px;height: 10vh;width: 10vh;"></a>
+<button id="Settings-myBtn"><img class="settings" src="assets/img/icon-ios7-gear-512.webp"></button>
 
 <!-- The Modal -->
 <div id="Settings-myModal" class="Settings-modal">
@@ -36,6 +46,8 @@ $Auth = new \Group8\Spyke\Auth;
 		<button id="vnp">View Newest Posts</button>			<!-- TODO -->
 		<p></p>
 		<button id="vlp">View Most Liked Posts</button>					<!-- TODO -->
+		<p></p>
+		<button onclick="darkmodeToggle()">Dark mode</button>
 		<p></p>
 		<button onclick="Logout()">Logout</button>
 	</div>
@@ -87,7 +99,7 @@ svlp.onclick = function() {
 			
 		<form action="action/post.php" method="post">                                              <!-- TODO -->
 		<input type="text" name="content" value="What's on your mind?"><br>
-		<input  type="submit" value="Post">
+		<input  type="submit" value="Post" onclick="RefreshPosts()">
 		</form> 
 	</div>
 
@@ -111,17 +123,7 @@ window.onclick = function(event) {
 </div>
 
 
-<script type="text/javascript">
-//    ID , Author, Content, Hidden?, Timestamp, Likes, Dislikes. 
 
-var Post1 = [19, 2,"Alphabet soup is great! " , false, 0 , 5 , 1 ];
-var Post2 = [24, 3,"Alphabet soup is meh! " , false, 1 , 3 , 3 ];
-var Post3 = [112, 4,"Alphabet soup is bad! " , false, 2 , 1 , 5 ];
-
-ShowPost(Post1);
-ShowPost(Post2);
-ShowPost(Post3);
-</script>
 
 </main>
 

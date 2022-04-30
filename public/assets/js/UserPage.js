@@ -2,7 +2,8 @@
 // JQUERY AND AJAX IMPLEMENTATION
 
 $(document).ready(function(){  // Debugging only:  init jquery
-    //alert("jQuery Works")  
+    RefreshPosts();
+	console.log("Refresh Run");
 	
 });
 
@@ -26,6 +27,37 @@ function AddFriend(User_B){
 	$.post("action/friend.php", {friend: User_B, action: "add"});
 	
 	
+}
+
+function RefreshPosts(){
+$.post("action/feed.php", function(data){
+		var resultArr = [];
+		for (var i = 0; i < data.length; i++){
+			var obj = data[i];
+			console.log(i +" : "+ obj);
+			resultArr.push(obj.id);
+			resultArr.push(obj.author);
+			resultArr.push(obj.content);
+			resultArr.push(obj.hidden);
+			resultArr.push(obj.timestamp);
+			resultArr.push(obj.likes);
+			resultArr.push(obj.dislikes);
+			console.log("ResultArr: "+resultArr);
+			ShowPost(resultArr);
+			resultArr = [];
+		}
+		
+
+		/*
+		for(var i = 0; i < data.length; i++) {
+			var obj = data[i];
+
+			resultArr.push(obj.id);
+			console.log(resultArr);
+		}
+		*/
+	});
+
 }
 
 
@@ -123,12 +155,14 @@ function CreatePendingModal(button){
 }
 
 
+
 function ShowPost(postArr){
 	if(postArr[3]){
-	
+	console.log("ShowPost Run hidden");
+
 	}
 	else{
-
+	let actualTime = new Date(postArr[4] *1000);
 	let post = document.createElement("article");
 	post.style.display = "none";
 	post.setAttribute("id", postArr[0]);
@@ -141,7 +175,7 @@ function ShowPost(postArr){
 	let likes = document.createElement("p");
 	likes.innerText = postArr[5];
 	let time = document.createElement("p");
-	time.innerText = "Timestamp: "+ postArr[4];
+	time.innerText = "Posted: "+ actualTime.toLocaleString('en-US');
 	let dislikeButton = document.createElement("button");
 	dislikeButton.innerText = "Dislike";
 	let dislikes = document.createElement("p");
@@ -163,6 +197,23 @@ function ShowPost(postArr){
 
 	}
 }
+
+
+function SwapCss(sheet){
+	document.getElementById("style").setAttribute("href",sheet);
+}
+
+function darkmodeToggle(){
+	var currentstyle = document.getElementById("style").getAttribute("href");
+	if(currentstyle == "assets/css/UserPage.css"){
+		SwapCss("assets/css/UserPageDarkmode.css");
+	}
+	else{
+		SwapCss("assets/css/UserPage.css")
+	}
+}
+
+
 
 function CloseModal(modal){
 	modal.style.display ="none";
