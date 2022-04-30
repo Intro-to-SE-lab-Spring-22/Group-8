@@ -42,7 +42,7 @@ $.post("action/feed.php", function(data){
 			resultArr.push(obj.timestamp);
 			resultArr.push(obj.likes);
 			resultArr.push(obj.dislikes);
-			console.log(resultArr);
+			console.log("ResultArr: "+resultArr);
 			ShowPost(resultArr);
 			resultArr = [];
 		}

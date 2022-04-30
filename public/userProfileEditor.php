@@ -120,7 +120,7 @@ $_SESSION['User'];
                 <option value="3">Prefer Not To Say</option>
             </select>
             <script>
-                    var temp = resultArr[2];
+                    var temp = window.resultArr[2];
                     var mySelect = document.getElementById('mySelect');
 
                     for(var i, j = 0; i = mySelect.options[j]; j++) {
