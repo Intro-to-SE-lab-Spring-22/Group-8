@@ -27,13 +27,14 @@ $id = $_SESSION['User'];
         
             });
             var temp = resultArr[2];
-            var mySelect = document.getElementById('mySelect');
+            var mySelect = document.getElementById('gender');
 
                 for(var i, j = 0; i = mySelect.options[j]; j++) {
                     if(i.value == temp) {
                         mySelect.selectedIndex = j;
                         break;
                     }
+                    if(j >5){break;}
                 }
 
         });
