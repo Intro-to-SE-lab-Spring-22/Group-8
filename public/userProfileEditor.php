@@ -57,12 +57,12 @@ $id = $_SESSION['User'];
             var loadFile = function(event){
                 imageHolder = document.getElementById("output");
                 selectedImage = URL.createObjectURL(event.target.files[0]);
-                $.post("action/set-image.php", {img : selectedImage}, function(data){
-                });
-                $.post("action/get-image.php",function(data){
-                });
-                imageHolder.src = URL.CreateObjectURL(data);
-                };
+               // $.post("action/set-image.php", {img : selectedImage}, function(data){
+              //  });
+                //$.post("action/get-image.php",function(data){
+                //});
+                //imageHolder.src = URL.CreateObjectURL(data);
+                }//;
    
    </script>
     <style>
