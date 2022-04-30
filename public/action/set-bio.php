@@ -5,10 +5,10 @@ $UserDB = new Group8\Spyke\Database\User();
 
 $id = $_POST['id'] ?? 0;
 $bio = $_POST['bio'] ?? "";
-$first = $_POST[''];
-$last = $_POST[''];
-$location = $_POST[''];
-$gender = $_POST[''];
+$first = $_POST['firstname'];
+$last = $_POST['lastname'];
+$location = $_POST['location'];
+$gender = $_POST['gender'];
 
 
 // Return false if the bio is

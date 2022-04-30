@@ -109,7 +109,7 @@ $id = $_SESSION['User'];
             <input id="file" type="file" onchange="loadFile(event)"/>
             <img  id="output" width="200" src= /><!--change src to current profile pic-->
         </div>
-		<form action="action/updateInfo.php" method="post"> <!--update action attribute-->
+		<form action="action/set-bio.php" method="post"> <!--update action attribute-->
 			<p>First Name </p>
 			<input type="text" name="firstname" placeholder="Current First Name"> <!--update placeholder attribute to reflect current state-->
 			<p>Last Name</p>
