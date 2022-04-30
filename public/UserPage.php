@@ -19,8 +19,17 @@ $Auth = new \Group8\Spyke\Auth;
 
 </head>
 <body>
-<script src="assets/js/UserPage.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="assets/js/UserPage.js"></script>
+<script>
+	$(document).ready(function log(argument) {
+		$.post("action/feed.php", function(data){
+			console.log(JSON.stringify(data));
+		});
+		// body...
+	})
+</script>
 
 
 <header>
