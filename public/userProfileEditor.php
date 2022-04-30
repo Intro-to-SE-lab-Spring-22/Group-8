@@ -15,16 +15,25 @@ $_SESSION['User'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $.post("action/get-bio.php", function(data){
+            $.post("action/get-bio.php", {id:$_SESSION['User']}, function(data){
                 window.resultArr = [];
                 for (var i = 0; i < data.length; i++){
                     var obj = data[i];
                     resultArr.push(obj);
 
 
-        }
+                }
         
             });
+            var temp = window.resultArr[2];
+            var mySelect = document.getElementById('mySelect');
+
+                for(var i, j = 0; i = mySelect.options[j]; j++) {
+                    if(i.value == temp) {
+                        mySelect.selectedIndex = j;
+                        break;
+                    }
+                }
 
         });
 
@@ -119,17 +128,7 @@ $_SESSION['User'];
                 <option value="2">Other</option>
                 <option value="3">Prefer Not To Say</option>
             </select>
-            <script>
-                    var temp = window.resultArr[2];
-                    var mySelect = document.getElementById('mySelect');
 
-                    for(var i, j = 0; i = mySelect.options[j]; j++) {
-                        if(i.value == temp) {
-                            mySelect.selectedIndex = j;
-                            break;
-    }
-}
-</script>
 
             <hr>
             <button type="submit">Update Profile</button>
