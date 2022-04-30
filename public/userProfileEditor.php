@@ -1,6 +1,7 @@
 <?php 
 session_start();
 $id = $_SESSION['User'];
+echo var_dump($_SESSION);
 
 ?>
 
