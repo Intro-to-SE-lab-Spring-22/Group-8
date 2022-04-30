@@ -43,12 +43,21 @@ class User extends \Group8\Spyke\Database
     public function setImage(int $id, \GdImage $image)
     {
         // Converts the GdImage to a WebP image and stores it in the database.
+		ob_start();
+		imagewebp($image, null, 80);
+		$webp = ob_get_clean();
         $data = [
             "id" => $id,
-            "image" => imagewebp($image, null, 90),
+            "image" => $webp
         ];
         $sql = "UPDATE users SET image = :image WHERE id = :id";
-        return $this->prepare($sql)->execute($data);
+        if ($this->prepare($sql)->execute($data)) {
+			// Success
+			return true;
+		} else {
+			// Failure
+			return false;
+		}
     }
 
     public function setBio(int $id, string $about)
