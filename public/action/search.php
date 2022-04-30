@@ -7,8 +7,8 @@ Use Group8\Spyke\Database\Post;
 
 $PostDB = new Post();
 
-$page = min(($_GET['page'] ?? 1) - 1, 0);
-$user = ($_GET['user'] > 0) ? floor($_GET['user']) : die("Invalid user ID");
+$page = min(($_POST['page'] ?? 1) - 1, 0);
+$user = ($_POST['user'] > 0) ? floor($_POST['user']) : die("Invalid user ID");
 
 $feed = $PostDB->getFeed("id", $page, true, $user);
 

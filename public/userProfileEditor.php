@@ -17,7 +17,7 @@ $id = $_SESSION['User'];
     <script type="text/javascript">
         $(document).ready(function(){
             $.post("action/get-bio.php", {"id" : <?= $_SESSION['user']?> }, function(data){
-                window.resultArr = [];
+                var resultArr = [];
                 for (var i = 0; i < data.length; i++){
                     var obj = data[i];
                     resultArr.push(obj);
@@ -26,7 +26,7 @@ $id = $_SESSION['User'];
                 }
         
             });
-            var temp = window.resultArr[2];
+            var temp = resultArr[2];
             var mySelect = document.getElementById('mySelect');
 
                 for(var i, j = 0; i = mySelect.options[j]; j++) {
@@ -43,9 +43,9 @@ $id = $_SESSION['User'];
             var loadFile = function(event){
                 imageHolder = document.getElementById("output");
                 selectedImage = URL.createObjectURL(event.target.files[0]);
-                $.post("action/uploadImg.php", {img : selectedImage}, function(data){
+                $.post("action/set-image.php", {img : selectedImage}, function(data){
                 });
-                $.post("action/getImg.php",function(data){
+                $.post("action/get-image.php",function(data){
                 });
                 imageHolder.src = selectedImage;
                 };
