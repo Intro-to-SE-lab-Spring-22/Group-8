@@ -36,7 +36,7 @@ $id = $_SESSION['User'];
             $.post("action/get-image.php",function(data){
                 
                 imageHolder=document.getElementById("output");
-                imageHolder.src = data;
+                imageHolder.src = URL.createObjectURL(data);
                 });
 
             var temp = resultArr[2];
@@ -61,7 +61,7 @@ $id = $_SESSION['User'];
                 });
                 $.post("action/get-image.php",function(data){
                 });
-                imageHolder.src = data;
+                imageHolder.src = URL.CreateObjectURL(data);
                 };
    
    </script>
