@@ -33,6 +33,12 @@ $id = $_SESSION['User'];
 
         
             });
+            $.post("action/get-image.php",function(data){
+                
+                imageHolder=document.getElementById("output");
+                imageHolder.src = data;
+                });
+
             var temp = resultArr[2];
             var mySelect = document.getElementById('gender');
 
@@ -55,7 +61,7 @@ $id = $_SESSION['User'];
                 });
                 $.post("action/get-image.php",function(data){
                 });
-                imageHolder.src = selectedImage;
+                imageHolder.src = data;
                 };
    
    </script>
