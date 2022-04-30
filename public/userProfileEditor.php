@@ -16,8 +16,8 @@ $id = $_SESSION['User'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            var resultArr = [];
             $.post("action/get-bio.php", {"id" : <?= $_SESSION['user']?> }, function(data){
-                var resultArr = [];
                 for (var i = 0; i < data.length; i++){
                     var obj = data[i];
                     resultArr.push(obj);
